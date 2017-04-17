@@ -144,4 +144,48 @@ public static　class SystemCalc
 	}
 
 	#endregion
+
+	#region GetVelocityTopPos (初速を加えた時の最高地点の座標を求める)
+
+	/// <summary>
+	/// 初速を加えた時の最高地点の座標を求める
+	/// </summary>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startHeight">初速を加えた時の高さ</param>
+	/// <returns>最高地点の座標</returns>
+	public static Vector3 GetVelocityTopPos(Vector3 _vec, Vector3 _startHeight)
+	{
+		return GetVelocityTopPos(_vec, _startHeight.y, DefaultGravitationalAccelerationVec);
+	}
+
+	/// <summary>
+	/// 初速を加えた時の最高地点の座標を求める
+	/// </summary>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startHeight">初速を加えた時の高さ</param>
+	/// <returns>最高地点の座標</returns>
+	public static Vector3 GetVelocityTopPos(Vector3 _vec, float _startHeight)
+	{
+		return GetVelocityTopPos(_vec, _startHeight, DefaultGravitationalAccelerationVec);
+	}
+
+	/// <summary>
+	/// 初速を加えた時の最高地点の座標を求める
+	/// </summary>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startHeight">初速を加えた時の高さ</param>
+	/// <param name="_gravity">重力加速度</param>
+	/// <param name="_mass">質量</param>
+	/// <param name="_drag">空気抵抗</param>
+	/// <returns>最高地点の座標</returns>
+	public static Vector3 GetVelocityTopPos(Vector3 _vec, float _startHeight, Vector3 _gravity, float _mass = DefaultMass, float _drag = DefaultDrag)
+	{
+		//GetVelocityTopTime
+		var t = Mathf.Clamp(_vec.y / -_gravity.y, 0.0f, float.PositiveInfinity);
+		var h = (_vec.y * t) + (-0.5f * -_gravity.y * Mathf.Pow(t, 2.0f)) + _startHeight;
+		return new Vector3(_vec.x * t, h, _vec.z * t);
+	}
+
+
+	#endregion
 }

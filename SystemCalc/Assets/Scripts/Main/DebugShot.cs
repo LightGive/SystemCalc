@@ -5,6 +5,8 @@ using UnityEngine;
 public class DebugShot : MonoBehaviour
 {
 	[SerializeField]
+	private GameObject targetObj;
+	[SerializeField]
 	private Vector3 vec;
 
 	private Rigidbody rigid;
@@ -28,6 +30,12 @@ public class DebugShot : MonoBehaviour
 			rigid.velocity = vec;
 			Debug.Log(SystemCalc.GetVelocityTopHeight(vec, transform.position));
 			StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
+		}
+		if (Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			rigid.velocity = vec;
+			StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
+			targetObj.transform.position = SystemCalc.GetVelocityTopPos(vec, transform.position);
 		}
 	}
 
