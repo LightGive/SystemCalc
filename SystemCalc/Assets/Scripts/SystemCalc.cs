@@ -24,10 +24,10 @@ public static　class SystemCalc
 	/// </summary>
 	private static readonly Vector3 DefaultGravitationalAccelerationVec = new Vector3(0.0f, DefaultGravitationalAcceleration, 0.0f);
 
-	#region GetVelocityTopTime (初速を加えて何秒後に頂点に達するかを求める)
+	#region GetVelocityTopTime (初速を加えた時、何秒後に頂点に達するかを求める)
 
 	/// <summary>
-	/// 初速を加えて何秒後に頂点に達するかを求める
+	/// 初速を加えた時、何秒後に頂点に達するかを求める
 	/// </summary>
 	/// <param name="_vec">初速</param>
 	/// <returns>何秒後に頂点に到達するか</returns>
@@ -37,7 +37,7 @@ public static　class SystemCalc
 	}
 
 	/// <summary>
-	/// 初速を加えて何秒後に頂点に達するかを求める
+	/// 初速を加えた時、何秒後に頂点に達するかを求める
 	/// </summary>
 	/// <param name="_vec">初速</param>
 	/// <returns>何秒後に頂点に到達するか</returns>
@@ -47,7 +47,7 @@ public static　class SystemCalc
 	}
 
 	/// <summary>
-	/// 初速を加えて何秒後に頂点に達するかを求める
+	/// 初速を加えた時、何秒後に頂点に達するかを求める
 	/// </summary>
 	/// <param name="_vec">初速</param>
 	/// <param name="_gravity">重力加速度</param>
@@ -58,7 +58,7 @@ public static　class SystemCalc
 	}
 
 	/// <summary>
-	/// 初速を加えて何秒後に頂点に達するかを求める
+	/// 初速を加えた時、何秒後に頂点に達するかを求める
 	/// </summary>
 	/// <param name="_vec">初速</param>
 	/// <param name="_gravity">重力加速度</param>
@@ -69,7 +69,7 @@ public static　class SystemCalc
 	}
 
 	/// <summary>
-	/// 初速を加えて何秒後に頂点に達するかを求める
+	/// 初速を加えた時、何秒後に頂点に達するかを求める
 	/// </summary>
 	/// <param name="_vec">初速</param>
 	/// <param name="_gravity">重力加速度</param>
@@ -82,4 +82,66 @@ public static　class SystemCalc
 	#endregion
 
 
+	#region GetVelocityTopHeight (初速を加えた時の最高地点の高さを求める)
+	/// <summary>
+	/// 初速を加えた時の最高地点の高さを求める
+	/// </summary>
+	/// <param name="_vec"></param>
+	/// <param name="_startHeight"></param>
+	/// <returns></returns>
+	public static float GetVelocityTopHeight(Vector3 _vec, Vector3 _startHeight)
+	{
+		return GetVelocityTopHeight(_vec.y, _startHeight.y, DefaultGravitationalAccelerationVec);
+	}
+
+	/// <summary>
+	/// 初速を加えた時の最高地点の高さを求める
+	/// </summary>
+	/// <param name="_vec"></param>
+	/// <param name="_startHeight"></param>
+	/// <returns></returns>
+	public static float GetVelocityTopHeight(Vector3 _vec, float _startHeight)
+	{
+		return GetVelocityTopHeight(_vec.y, _startHeight, DefaultGravitationalAccelerationVec);
+	}
+
+	/// <summary>
+	/// 初速を加えた時の最高地点の高さを求める
+	/// </summary>
+	/// <param name="_vec"></param>
+	/// <param name="_startHeight"></param>
+	/// <returns></returns>
+	public static float GetVelocityTopHeight(float _vec, Vector3 _startHeight)
+	{
+		return GetVelocityTopHeight(_vec, _startHeight.y, DefaultGravitationalAccelerationVec);
+	}
+
+	/// <summary>
+	/// 初速を加えた時の最高地点の高さを求める
+	/// </summary>
+	/// <param name="_vec"></param>
+	/// <param name="_startHeight"></param>
+	/// <returns></returns>
+	public static float GetVelocityTopHeight(float _vec, float _startHeight)
+	{
+		return GetVelocityTopHeight(_vec, _startHeight, DefaultGravitationalAccelerationVec);
+	}
+
+	/// <summary>
+	/// 初速を加えた時の最高地点の高さを求める
+	/// </summary>
+	/// <param name="_vec"></param>
+	/// <param name="_startHeight"></param>
+	/// <param name="_gravity"></param>
+	/// <param name="_mass"></param>
+	/// <param name="_drag"></param>
+	/// <returns></returns>
+	public static float GetVelocityTopHeight(float _vec, float _startHeight, Vector3 _gravity, float _mass = DefaultMass, float _drag = DefaultDrag)
+	{
+		//GetVelocityTopTime
+		var t = Mathf.Clamp(_vec / -_gravity.y, 0.0f, float.PositiveInfinity);
+		return (_vec * t) + (-0.5f * -_gravity.y * Mathf.Pow(t, 2.0f)) + _startHeight;
+	}
+
+	#endregion
 }
