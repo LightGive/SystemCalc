@@ -16,14 +16,15 @@ public class DebugShot : MonoBehaviour
 	
 	void Update ()
 	{
-		//スペースキーを押したときに球を飛ばす
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
+			//最高地点までの時間を求める
 			rigid.velocity = vec;
 			StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
 		}
 		if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
+			//最高地点の高さを求める
 			rigid.velocity = vec;
 			Debug.Log(SystemCalc.GetVelocityTopHeight(vec, transform.position));
 			StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
