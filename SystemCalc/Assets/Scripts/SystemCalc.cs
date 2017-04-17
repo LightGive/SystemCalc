@@ -86,7 +86,7 @@ public static　class SystemCalc
 	/// <summary>
 	/// 初速を加えた時の最高地点の高さを求める
 	/// </summary>
-	/// <param name="_vec"></param>
+	/// <param name="_vec">初速</param>
 	/// <param name="_startHeight"></param>
 	/// <returns></returns>
 	public static float GetVelocityTopHeight(Vector3 _vec, Vector3 _startHeight)
@@ -97,8 +97,8 @@ public static　class SystemCalc
 	/// <summary>
 	/// 初速を加えた時の最高地点の高さを求める
 	/// </summary>
-	/// <param name="_vec"></param>
-	/// <param name="_startHeight"></param>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startHeight">初速を加えた時の高さ</param>
 	/// <returns></returns>
 	public static float GetVelocityTopHeight(Vector3 _vec, float _startHeight)
 	{
@@ -108,8 +108,8 @@ public static　class SystemCalc
 	/// <summary>
 	/// 初速を加えた時の最高地点の高さを求める
 	/// </summary>
-	/// <param name="_vec"></param>
-	/// <param name="_startHeight"></param>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startHeight">初速を加えた時の高さ</param>
 	/// <returns></returns>
 	public static float GetVelocityTopHeight(float _vec, Vector3 _startHeight)
 	{
@@ -119,8 +119,8 @@ public static　class SystemCalc
 	/// <summary>
 	/// 初速を加えた時の最高地点の高さを求める
 	/// </summary>
-	/// <param name="_vec"></param>
-	/// <param name="_startHeight"></param>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startHeight">初速を加えた時の高さ</param>
 	/// <returns></returns>
 	public static float GetVelocityTopHeight(float _vec, float _startHeight)
 	{
@@ -130,9 +130,9 @@ public static　class SystemCalc
 	/// <summary>
 	/// 初速を加えた時の最高地点の高さを求める
 	/// </summary>
-	/// <param name="_vec"></param>
-	/// <param name="_startHeight"></param>
-	/// <param name="_gravity"></param>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startHeight">初速を加えた時の高さ</param>
+	/// <param name="_gravity">重力加速度</param>
 	/// <param name="_mass"></param>
 	/// <param name="_drag"></param>
 	/// <returns></returns>
