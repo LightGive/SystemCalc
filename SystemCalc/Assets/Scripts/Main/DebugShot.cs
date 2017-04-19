@@ -18,26 +18,34 @@ public class DebugShot : MonoBehaviour
 	
 	void Update ()
 	{
+		var t = 1.0f;
+
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
 			//最高地点までの時間を求める
 			rigid.velocity = vec;
 			StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha2))
+		else if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
 			//最高地点の高さを求める
 			rigid.velocity = vec;
 			Debug.Log(SystemCalc.GetVelocityTopHeight(vec, transform.position));
 			StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
 		}
-		if (Input.GetKeyDown(KeyCode.Alpha3))
+		else if (Input.GetKeyDown(KeyCode.Alpha3))
 		{
 			rigid.velocity = vec;
 			StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
 			targetObj.transform.position = SystemCalc.GetVelocityTopPos(vec, transform.position);
 		}
-	}
+		else if (Input.GetKeyDown(KeyCode.Alpha4))
+		{
+			rigid.velocity = vec;
+			targetObj.transform.position = SystemCalc.GetVelocityTimeToPosition(vec, transform.position, t);
+			StartCoroutine(WaitBreak(t));
+		}
+    }
 
 	private IEnumerator WaitBreak(float _waitTime)
 	{
