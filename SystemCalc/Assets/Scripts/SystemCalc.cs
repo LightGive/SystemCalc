@@ -193,7 +193,7 @@ public static　class SystemCalc
 
 	public static Vector3 GetVelocityTimeToPosition(Vector3 _vec, Vector3 _startPos, float _time)
 	{
-		GetVelocityTimeToPosition(_vec, _startPos, _time, DefaultGravitationalAccelerationVec);
+		return GetVelocityTimeToPosition(_vec, _startPos, _time, DefaultGravitationalAccelerationVec);
 	}
 
 	public static Vector3 GetVelocityTimeToPosition(Vector3 _vec, Vector3 _startPos, float _time, Vector3 _gravity, float _mass = DefaultMass, float _drag=DefaultDrag)
