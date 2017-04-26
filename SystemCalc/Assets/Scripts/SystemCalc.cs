@@ -191,6 +191,13 @@ public static　class SystemCalc
 
 	#region GetVelocityTimeToPosition (初速を加えた後指定秒数後にどの座標にいるかを求める)
 
+	/// <summary>
+	/// 初速を加えた後指定秒数後にどの座標にいるか
+	/// </summary>
+	/// <param name="_vec"></param>
+	/// <param name="_startPos"></param>
+	/// <param name="_time"></param>
+	/// <returns></returns>
 	public static Vector3 GetVelocityTimeToPosition(Vector3 _vec, Vector3 _startPos, float _time)
 	{
 		return GetVelocityTimeToPosition(_vec, _startPos, _time, DefaultGravitationalAccelerationVec);
@@ -202,4 +209,16 @@ public static　class SystemCalc
 	}
 
 	#endregion
+
+
+
+	#region GetMagnusEffectVec (回転のベクトルからマグヌス効果で付与するベクトルを求める)
+
+	public static Vector3 GetMagnusEffectVec(Vector3 _angleVelocity, Vector3 _velocity)
+	{
+		return Vector3.zero;
+	}
+
+	#endregion
+
 }

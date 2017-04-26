@@ -5,6 +5,9 @@ using UnityEngine;
 public class DebugShot : MonoBehaviour
 {
 	[SerializeField]
+	private bool isMagnusEffect;
+
+	[SerializeField]
 	private GameObject targetObj;
 	[SerializeField]
 	private Vector3 vec;
@@ -44,6 +47,12 @@ public class DebugShot : MonoBehaviour
 			rigid.velocity = vec;
 			targetObj.transform.position = SystemCalc.GetVelocityTimeToPosition(vec, transform.position, t);
 			StartCoroutine(WaitBreak(t));
+		}
+
+
+		if (isMagnusEffect)
+		{
+
 		}
     }
 
