@@ -211,6 +211,15 @@ public static　class SystemCalc
 	#endregion
 
 
+	#region GetFreeFallTime (空気抵抗を含む指定距離の自由落下する時間を求める)
+
+	public static float GetFreeFallTime(float _height, float _gravity,float _mass, float _drag)
+	{
+		return Mathf.Sqrt(_mass / (-_gravity * _drag)) * (float)System.Math.Acos((_height * _drag) / _mass);
+	}
+
+	#endregion
+
 
 	#region GetMagnusEffectVec (回転のベクトルからマグヌス効果で付与するベクトルを求める)
 
