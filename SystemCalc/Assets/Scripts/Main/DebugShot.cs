@@ -49,7 +49,6 @@ public class DebugShot : MonoBehaviour
 			StartCoroutine(WaitBreak(t));
 		}
 
-
 		if (isMagnusEffect)
 		{
 
