@@ -19,6 +19,8 @@ public static　class SystemCalc
 	/// 通常の質量
 	/// </summary>
 	private const float DefaultMass = 1.0f;
+
+	private const float E = (float)System.Math.E;
 	/// <summary>
 	/// 通常の重力加速度のベクトル
 	/// </summary>
@@ -210,7 +212,6 @@ public static　class SystemCalc
 
 	#endregion
 
-
 	#region GetFreeFallTime (空気抵抗を含む指定距離の自由落下する時間を求める)
 
 	public static float GetFreeFallTime(float _height, float _gravity,float _mass, float _drag)
@@ -219,7 +220,6 @@ public static　class SystemCalc
 	}
 
 	#endregion
-
 
 	#region GetMagnusEffectVec (回転のベクトルからマグヌス効果で付与するベクトルを求める)
 

@@ -16,6 +16,10 @@ public class DebugShot : MonoBehaviour
 
 	private Rigidbody rigid;
 
+
+	[SerializeField, TextArea]
+	private string debugNote;
+
 	void Start ()
 	{
 		rigid = GetComponent<Rigidbody>();
