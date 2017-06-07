@@ -19,7 +19,9 @@ public static　class SystemCalc
 	/// 通常の質量
 	/// </summary>
 	private const float DefaultMass = 1.0f;
-
+	/// <summary>
+	/// ネイピア数,2.718281828...
+	/// </summary>
 	private const float E = (float)System.Math.E;
 	/// <summary>
 	/// 通常の重力加速度のベクトル
