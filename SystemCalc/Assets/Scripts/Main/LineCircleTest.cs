@@ -2,15 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LineCircleTest : MonoBehaviour {
+public class LineCircleTest : MonoBehaviour
+{
+	[SerializeField]
+	private Transform p1;
+	[SerializeField]
+	private Transform p2;
+	[SerializeField]
+	private LineRenderer line;
 
-	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+		line.positionCount = 2;	
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+	{
+		line.SetPosition(0, p1.position);
+		line.SetPosition(1, p2.position);
+
 	}
 }
