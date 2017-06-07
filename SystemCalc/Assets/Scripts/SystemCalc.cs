@@ -253,6 +253,12 @@ public static　class SystemCalc
 		var k = a * _circleCenter.x + b * _circleCenter.y + c;
 		var d = l * _circleRadius * _circleRadius - k * k;
 
+		_intersectionPoint1 = Vector2.zero;
+		_intersectionPoint2 = Vector2.zero;
+
+		if (_linePoint1 == _linePoint2)
+			return false;
+
 		if (d > 0)
 		{
 			var ds = Mathf.Sqrt(d);
@@ -262,21 +268,19 @@ public static　class SystemCalc
 			var yc = _circleCenter.y - bpl * k;
 			var xd = bpl * ds;
 			var yd = apl * ds;
-			_intersectionPoint1 = new Vector2(xc - xd, yc * yd);
+			_intersectionPoint1 = new Vector2(xc - xd, yc + yd);
 			_intersectionPoint2 = new Vector2(xc + xd, yc - yd);
 			return true;
 		}
-		else if(d == 0)
+		else if (d == 0)
 		{
 			var contactPoint = new Vector2(_circleCenter.x - a * k / l, _circleCenter.y - b * k / l);
-            _intersectionPoint1 = contactPoint;
+			_intersectionPoint1 = contactPoint;
 			_intersectionPoint2 = contactPoint;
 			return true;
 		}
 		else
 		{
-			_intersectionPoint1 = Vector2.zero;
-			_intersectionPoint2 = Vector2.zero;
 			return false;
 		}
 	}

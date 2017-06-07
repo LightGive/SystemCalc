@@ -8,12 +8,22 @@ public class LineCircleDraw : MonoBehaviour
 {
 	[SerializeField,Range(4, 1000),Tooltip("円の頂点数")]
 	private int verticesCount = 60;
+	[SerializeField, Tooltip("円の倍率")]
+	private Vector2 radiusMagnification = Vector2.one;
 	[SerializeField, Tooltip("半径")]
-	private Vector2 radius = new Vector2(1.0f, 1.0f);
+	private float radius = 1.0f;
 	[SerializeField, Tooltip("円の軸")]
 	private Axis axis = Axis.Z;
 
 	private LineRenderer line;
+
+	/// <summary>
+	/// 半径
+	/// </summary>
+	public float Radius
+	{
+		get { return radius; }
+	}
 
 	public enum Axis { X, Y, Z };
 
@@ -39,10 +49,11 @@ public class LineCircleDraw : MonoBehaviour
 	/// <summary>
 	/// 円を作成する
 	/// </summary>
+	[ContextMenu("CreateCircle")]
 	void CreateCircle()
 	{
 		if (line == null)
-			return;
+			line = GetComponent<LineRenderer>();
 
 		line.positionCount = (verticesCount + 1);
 
@@ -51,8 +62,8 @@ public class LineCircleDraw : MonoBehaviour
 
 		for (int i = 0; i < (verticesCount + 1); i++)
 		{
-			x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius.x;
-			y = Mathf.Cos(Mathf.Deg2Rad * angle) * radius.y;
+			x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius * radiusMagnification.x;
+			y = Mathf.Cos(Mathf.Deg2Rad * angle) * radius * radiusMagnification.y;
 
 			switch (axis)
 			{
