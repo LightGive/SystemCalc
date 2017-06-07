@@ -232,4 +232,56 @@ public static　class SystemCalc
 
 	#endregion
 
+	#region GetCircleLineIntersection（円と線との交点を求める）
+
+	/// <summary>
+	/// 円と線との交点を求める
+	/// </summary>
+	/// <param name="_linePoint1">線のポイント１</param>
+	/// <param name="_linePoint2">線のポイント２</param>
+	/// <param name="_circleCenter">円の中心座標</param>
+	/// <param name="_circleRadius">円の半径</param>
+	/// <param name="_intersectionPoint1">交点１</param>
+	/// <param name="_intersectionPoint2">交点２</param>
+	/// <returns>円と点が接するか</returns>
+	public static bool GetCircleLineIntersection(Vector2 _linePoint1, Vector2 _linePoint2, Vector2 _circleCenter, float _circleRadius, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
+	{
+		var a = _linePoint2.y - _linePoint1.y;
+		var b = _linePoint1.x - _linePoint2.x;
+		var c = -((a * _linePoint1.x) + (b * _linePoint1.y));
+		var l = (a * a) + (b * b);
+		var k = a * _circleCenter.x + b * _circleCenter.y + c;
+		var d = l * _circleRadius * _circleRadius - k * k;
+
+		if (d > 0)
+		{
+			var ds = Mathf.Sqrt(d);
+			var apl = a / l;
+			var bpl = b / l;
+			var xc = _circleCenter.x - apl * k;
+			var yc = _circleCenter.y - bpl * k;
+			var xd = bpl * ds;
+			var yd = apl * ds;
+			_intersectionPoint1 = new Vector2(xc - xd, yc * yd);
+			_intersectionPoint2 = new Vector2(xc + xd, yc - yd);
+			return true;
+		}
+		else if(d == 0)
+		{
+			var contactPoint = new Vector2(_circleCenter.x - a * k / l, _circleCenter.y - b * k / l);
+            _intersectionPoint1 = contactPoint;
+			_intersectionPoint2 = contactPoint;
+			return true;
+		}
+		else
+		{
+			_intersectionPoint1 = Vector2.zero;
+			_intersectionPoint2 = Vector2.zero;
+			return false;
+		}
+	}
+
+	#endregion
+
+
 }
