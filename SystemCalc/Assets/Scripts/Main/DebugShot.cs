@@ -29,35 +29,31 @@ public class DebugShot : MonoBehaviour
 	{
 		var t = 1.0f;
 
-		if (Input.GetKeyDown(KeyCode.Alpha1))
+		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			//最高地点までの時間を求める
 			rigid.velocity = vec;
 			StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
-		}
-		else if (Input.GetKeyDown(KeyCode.Alpha2))
-		{
+
+
 			//最高地点の高さを求める
 			rigid.velocity = vec;
 			Debug.Log(SystemCalc.GetVelocityTopHeight(vec, transform.position));
 			StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
-		}
-		else if (Input.GetKeyDown(KeyCode.Alpha3))
-		{
+
+
 			//最高地点の座標を求める
 			rigid.velocity = vec;
 			StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
 			targetObj.transform.position = SystemCalc.GetVelocityTopPos(vec, transform.position);
-		}
-		else if (Input.GetKeyDown(KeyCode.Alpha4))
-		{
+
+
 			//指定秒数後にどの座標にいるか
 			rigid.velocity = vec;
 			targetObj.transform.position = SystemCalc.GetVelocityTimeToPosition(vec, transform.position, t);
 			StartCoroutine(WaitBreak(t));
-		}
-		else if (Input.GetKeyDown(KeyCode.Alpha5))
-		{
+
+
 			rigid.isKinematic = true;
 			rigid.velocity = Vector3.zero;
 			var pos = transform.position + new Vector3(0.0f, UP_POS, 0.0f);
