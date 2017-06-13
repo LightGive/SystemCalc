@@ -29,7 +29,6 @@ public class DebugShot : MonoBehaviour
 
 	void Start ()
 	{
-		AddNo(0);
 		rigid = GetComponent<Rigidbody>();
 		defaultPos = transform.position;
 		discriptionStr = new string[]
@@ -41,8 +40,11 @@ public class DebugShot : MonoBehaviour
 			"",
 			"",
 		};
+
+		AddNo(0);
+
 	}
-	
+
 	void Update ()
 	{
 		var t = 1.0f;
