@@ -14,15 +14,15 @@ public class DebugShot : MonoBehaviour
 	[SerializeField]
 	private Vector3 vec;
 
+	private int shotNo = 0;
+	private Vector3 defaultPos;
 	private Rigidbody rigid;
-
-
-	[SerializeField, TextArea]
-	private string debugNote;
 
 	void Start ()
 	{
 		rigid = GetComponent<Rigidbody>();
+		defaultPos = transform.position;
+
 	}
 	
 	void Update ()
@@ -54,10 +54,8 @@ public class DebugShot : MonoBehaviour
 			StartCoroutine(WaitBreak(t));
 
 
-			rigid.isKinematic = true;
 			rigid.velocity = Vector3.zero;
 			var pos = transform.position + new Vector3(0.0f, UP_POS, 0.0f);
-			rigid.isKinematic = false;
 			StartCoroutine(WaitBreak(SystemCalc.GetFreeFallTime(UP_POS, Physics.gravity.y, rigid.mass, rigid.drag)));
 		}
 
@@ -66,6 +64,13 @@ public class DebugShot : MonoBehaviour
 
 		}
     }
+
+	void Reset()
+	{
+		rigid.isKinematic = true;
+		transform.position = defaultPos;
+		rigid.isKinematic = false;
+	}
 
 	private IEnumerator WaitBreak(float _waitTime)
 	{
@@ -76,6 +81,11 @@ public class DebugShot : MonoBehaviour
 			transform.position.y.ToString("F4") + " , " +
 			transform.position.z.ToString("F4"));
 		Debug.Break();
+	}
+
+	public void AddNo(int _add)
+	{
+		shotNo += _add;
 	}
 
 	void OnDrawGizmos()
