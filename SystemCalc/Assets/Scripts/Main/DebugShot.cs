@@ -18,16 +18,29 @@ public class DebugShot : MonoBehaviour
 	private float t;
 	[SerializeField]
 	private Text debugNoText;
+	[SerializeField]
+	private Text debugDiscriptionText;
 
 	private int debugShotNo = 0;
+	private string []discriptionStr;
 	private Vector3 defaultPos;
 	private Rigidbody rigid;
 
+
 	void Start ()
 	{
+		AddNo(0);
 		rigid = GetComponent<Rigidbody>();
 		defaultPos = transform.position;
-
+		discriptionStr = new string[]
+		{
+			"最高地点までの時間を求める",
+			"最高地点の高さを求める",
+			"最高地点の座標を求める",
+			"指定秒数後にどの座標にいるか",
+			"",
+			"",
+		};
 	}
 	
 	void Update ()
@@ -36,13 +49,6 @@ public class DebugShot : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-
-
-
-
-
-
-
 			rigid.velocity = Vector3.zero;
 			var pos = transform.position + new Vector3(0.0f, UP_POS, 0.0f);
 			StartCoroutine(WaitBreak(SystemCalc.GetFreeFallTime(UP_POS, Physics.gravity.y, rigid.mass, rigid.drag)));
@@ -77,7 +83,7 @@ public class DebugShot : MonoBehaviour
 		str += "現在の座標:(" +
 			transform.position.x.ToString("F4") + " , " +
 			transform.position.y.ToString("F4") + " , " +
-			transform.position.z.ToString("F4") + "\n";
+			transform.position.z.ToString("F4") + ")\n";
 
 		if(_pos != Vector3.zero)
 		{
@@ -85,13 +91,13 @@ public class DebugShot : MonoBehaviour
 		}
 
 		Debug.Log(str);
-		Debug.Break();
 	}
 
 	public void AddNo(int _add)
 	{
 		debugShotNo = Mathf.Clamp(debugShotNo + _add, 0, 4);
 		debugNoText.text = debugShotNo.ToString("00");
+		debugDiscriptionText.text = discriptionStr[debugShotNo];
 	}
 
 	public void DebugStart()
@@ -100,26 +106,25 @@ public class DebugShot : MonoBehaviour
 		{
 			case 0:
 				//最高地点までの時間を求める
-				rigid.velocity = vec;
+				rigid.AddForce(vec, ForceMode.VelocityChange);
 				StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
 				break;
 			case 1:
 				//最高地点の高さを求める
-				rigid.velocity = vec;
-				Debug.Log(SystemCalc.GetVelocityTopHeight(vec, transform.position));
+				rigid.AddForce(vec, ForceMode.VelocityChange);
 				StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
 				break;
 			case 2:
 				//最高地点の座標を求める
-				rigid.velocity = vec;
-				StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec)));
+				rigid.AddForce(vec, ForceMode.VelocityChange);
+				StartCoroutine(WaitBreak(SystemCalc.GetVelocityTopTime(vec), SystemCalc.GetVelocityTopPos(vec, transform.position)));
 				targetObj.transform.position = SystemCalc.GetVelocityTopPos(vec, transform.position);
 				break;
-			case 3:         
+			case 3:
 				//指定秒数後にどの座標にいるか
-				rigid.velocity = vec;
+				rigid.AddForce(vec, ForceMode.VelocityChange);
 				targetObj.transform.position = SystemCalc.GetVelocityTimeToPosition(vec, transform.position, t);
-				StartCoroutine(WaitBreak(t));
+				StartCoroutine(WaitBreak(t, SystemCalc.GetVelocityTimeToPosition(vec, transform.position, t)));
 				break;
 		}
 	}
