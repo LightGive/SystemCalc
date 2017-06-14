@@ -287,5 +287,73 @@ public static　class SystemCalc
 
 	#endregion
 
+	#region ArraySum(配列内の要素を合計する)
+
+	/// <summary>
+	/// 配列内の要素を合計する
+	/// </summary>
+	/// <param name="_array">合計する配列</param>
+	/// <returns>合計値</returns>
+	public static int ArraySum(params int[] _array)
+	{
+		int sum = 0;
+		for (int i = 0; i < _array.Length; i++)
+			sum += _array[i];
+		return sum;
+	}
+
+	/// <summary>
+	/// 配列内の要素を合計する
+	/// </summary>
+	/// <param name="_array">合計する配列</param>
+	/// <returns>合計値</returns>
+	public static float ArraySum(params float[] _array)
+	{
+		float sum = 0;
+		for (int i = 0; i < _array.Length; i++)
+			sum += _array[i];
+		return sum;
+	}
+	#endregion
+
+	#region GetRandomIndex(重みづけされた配列からランダムな添え字を返す)
+
+	/// <summary>
+	/// 重みづけされた配列からランダムな添え字を返す
+	/// 配列の要素が全て0の時は-1を返す
+	/// </summary>
+	/// <param name="_weightTable">重み付けされた配列</param>
+	/// <returns>ランダムな添え字</returns>
+	public static int GetRandomIndex(params int[] _weightTable)
+	{
+		float[] floatWeighttable = new float[_weightTable.Length];
+		_weightTable.CopyTo(floatWeighttable, 0);
+		return GetRandomIndex(floatWeighttable);
+	}
+
+	/// <summary>
+	/// 重みづけされた配列からランダムな添え字を返す
+	/// 配列の要素が全て0の時は-1を返す
+	/// </summary>
+	/// <param name="_weightTable">重み付けされた配列</param>
+	/// <returns>ランダムな添え字</returns>
+	public static int GetRandomIndex(params float[] _weightTable)
+	{
+		float totalWeight = ArraySum(_weightTable);
+		float val = UnityEngine.Random.Range(0.0f, totalWeight);
+		int retIndex = -1;
+		for (int i = 0; i < _weightTable.Length; i++)
+		{
+			if (_weightTable[i] >= val)
+			{
+				retIndex = i;
+				break;
+			}
+			val -= _weightTable[i];
+		}
+		return retIndex;
+	}
+
+	#endregion
 
 }
