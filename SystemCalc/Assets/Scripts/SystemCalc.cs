@@ -28,6 +28,7 @@ public static　class SystemCalc
 	/// </summary>
 	private static readonly Vector3 DefaultGravitationalAccelerationVec = new Vector3(0.0f, DefaultGravitationalAcceleration, 0.0f);
 
+	//物理など
 	#region GetVelocityTopTime (初速を加えた時、何秒後に頂点に達するかを求める)
 
 	/// <summary>
@@ -232,6 +233,7 @@ public static　class SystemCalc
 
 	#endregion
 
+
 	#region GetCircleLineIntersection（円と線との交点を求める）
 
 	/// <summary>
@@ -287,6 +289,7 @@ public static　class SystemCalc
 
 	#endregion
 
+	//配列など
 	#region ArraySum(配列内の要素を合計する)
 
 	/// <summary>
@@ -316,6 +319,7 @@ public static　class SystemCalc
 	}
 	#endregion
 
+	//乱数関係
 	#region GetRandomIndex(重みづけされた配列からランダムな添え字を返す)
 
 	/// <summary>
