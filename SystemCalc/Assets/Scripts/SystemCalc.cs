@@ -317,6 +317,19 @@ public static　class SystemCalc
 			sum += _array[i];
 		return sum;
 	}
+
+	/// <summary>
+	/// 配列内の要素を合計する
+	/// </summary>
+	/// <param name="_array">合計する配列</param>
+	/// <returns>合計値</returns>
+	public static string ArraySum(params string[] _array)
+	{
+		string sum = "";
+		for (int i = 0; i < _array.Length; i++)
+			sum += _array[i];
+		return sum;
+	}
 	#endregion
 
 	//乱数関係
