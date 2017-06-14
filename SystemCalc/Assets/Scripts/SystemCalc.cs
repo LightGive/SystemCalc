@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -371,6 +372,26 @@ public static　class SystemCalc
 		return retIndex;
 	}
 
+	#endregion
+
+
+	#region RandomDateTime(開始時間と終了時間をランダムで返す)
+	/// <summary>
+	///	開始時間と終了時間の間をランダムで返す計算をする
+	/// </summary>
+	/// <param name="_startDateTime">開始時間</param>
+	/// <param name="_endDatetime">終了時間</param>
+	/// <returns>開始時間～終了時間の間のランダムな時間</returns>
+	public static DateTime RandomDateTime(DateTime _startDateTime, DateTime _endDatetime)
+	{
+		//開始時間が終了時間より後の時
+		if (_startDateTime > _endDatetime)
+			return _startDateTime;
+
+		TimeSpan span = _endDatetime - _startDateTime;
+		float ranSpan = UnityEngine.Random.Range(0, (float)span.TotalMilliseconds);
+		return _startDateTime + TimeSpan.FromMilliseconds(ranSpan);
+	}
 	#endregion
 
 }
