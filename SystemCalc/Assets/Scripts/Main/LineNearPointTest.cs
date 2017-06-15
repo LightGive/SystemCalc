@@ -17,7 +17,8 @@ public class LineNearPointTest : MonoBehaviour {
 
 	void Start ()
 	{
-		
+		int[] a = new int[] { 1, 10, 3, 4, 2 };
+		Debug.Log(SystemCalc.ArraySum(a));
 	}
 
 	void Update ()
