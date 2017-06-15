@@ -384,7 +384,6 @@ public static　class SystemCalc
 	/// <returns>開始時間～終了時間の間のランダムな時間</returns>
 	public static DateTime RandomDateTime(DateTime _startDateTime, DateTime _endDatetime)
 	{
-		//開始時間が終了時間より後の時
 		if (_startDateTime > _endDatetime)
 			return _startDateTime;
 
