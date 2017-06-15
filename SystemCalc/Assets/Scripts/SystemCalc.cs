@@ -251,7 +251,6 @@ public static　class SystemCalc
 
 	#endregion
 
-
 	#region GetCircleLineIntersection（円と線との交点を求める）
 
 	/// <summary>
