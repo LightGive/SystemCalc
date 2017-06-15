@@ -245,7 +245,22 @@ public static　class SystemCalc
 	/// <returns>直線状の一番近い座標</returns>
 	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint)
 	{
+		return GetLineNearPoint(_linePoint1, _linePoint2, _checkPoint, false);
+	}
+
+	/// <summary>
+	/// ある座標の直線上の一番近い座標を求める
+	/// </summary>
+	/// <param name="_linePoint1">線のポイント１</param>
+	/// <param name="_linePoint2">線のポイント２</param>
+	/// <param name="_checkPoint">チェックする座標</param>
+	/// <param name="_isLimit">ポイントの間に制限をかけるか</param>
+	/// <returns>直線状の一番近い座標</returns>
+	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint,bool _isLimit = false)
+	{
 		var x = Vector3.Dot((_linePoint2 - _linePoint1).normalized, (_checkPoint - _linePoint1));
+		if (_isLimit)
+			x = Mathf.Clamp(x, 0.0f, Vector3.Distance(_linePoint1, _linePoint2));
 		return _linePoint1 + (_linePoint2 - _linePoint1).normalized * x;
 	}
 

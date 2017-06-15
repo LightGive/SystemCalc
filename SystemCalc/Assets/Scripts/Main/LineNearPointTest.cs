@@ -25,6 +25,6 @@ public class LineNearPointTest : MonoBehaviour {
 		line.SetPosition(0, p1.position);
 		line.SetPosition(1, p2.position);
 
-		gizmos.position = SystemCalc.GetLineNearPoint(p1.position, p2.position, nearPoint.position);
+		gizmos.position = SystemCalc.GetLineNearPoint(p1.position, p2.position, nearPoint.position, true);
 	}
 }
