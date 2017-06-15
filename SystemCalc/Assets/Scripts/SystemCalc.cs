@@ -29,7 +29,7 @@ public static　class SystemCalc
 	/// </summary>
 	private static readonly Vector3 DefaultGravitationalAccelerationVec = new Vector3(0.0f, DefaultGravitationalAcceleration, 0.0f);
 
-	//物理など
+
 	#region GetVelocityTopTime (初速を加えた時、何秒後に頂点に達するかを求める)
 
 	/// <summary>
@@ -234,6 +234,22 @@ public static　class SystemCalc
 
 	#endregion
 
+	#region GetLineNearPoint(ある座標の直線上の一番近い座標を求める)
+
+	/// <summary>
+	/// ある座標の直線上の一番近い座標を求める
+	/// </summary>
+	/// <param name="_linePoint1">線のポイント１</param>
+	/// <param name="_linePoint2">線のポイント２</param>
+	/// <param name="_checkPoint">チェックする座標</param>
+	/// <returns>直線状の一番近い座標</returns>
+	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint)
+	{
+		var x = Vector3.Dot((_linePoint2 - _linePoint1).normalized, (_checkPoint - _linePoint1));
+		return _linePoint1 + (_linePoint2 - _linePoint1).normalized * x;
+	}
+
+	#endregion
 
 	#region GetCircleLineIntersection（円と線との交点を求める）
 
@@ -290,7 +306,6 @@ public static　class SystemCalc
 
 	#endregion
 
-	//配列など
 	#region ArraySum(配列内の要素を合計する)
 
 	/// <summary>
@@ -333,7 +348,6 @@ public static　class SystemCalc
 	}
 	#endregion
 
-	//乱数関係
 	#region GetRandomIndex(重みづけされた配列からランダムな添え字を返す)
 
 	/// <summary>
@@ -373,7 +387,6 @@ public static　class SystemCalc
 	}
 
 	#endregion
-
 
 	#region RandomDateTime(開始時間と終了時間をランダムで返す)
 	/// <summary>
