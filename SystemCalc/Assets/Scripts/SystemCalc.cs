@@ -388,7 +388,6 @@ public static　class SystemCalc
 
 	#endregion
 
-
 	#region RandomDateTime(開始時間と終了時間をランダムで返す)
 	/// <summary>
 	///	開始時間と終了時間の間をランダムで返す計算をする
