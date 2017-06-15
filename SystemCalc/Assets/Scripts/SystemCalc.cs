@@ -363,6 +363,42 @@ public static　class SystemCalc
 	}
 	#endregion
 
+	#region ArrayMax(配列内の要素で最大の値を返す)
+
+	/// <summary>
+	/// 配列内の最大値を返す
+	/// </summary>
+	/// <param name="_array">配列</param>
+	/// <returns>最大値</returns>
+	public static int ArrayMax(params int[] _array)
+	{
+		int max = _array[0];
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] > max)
+				max = _array[i];
+		}
+		return max;
+	}
+
+	/// <summary>
+	/// 配列内の最大値を返す
+	/// </summary>
+	/// <param name="_array">配列</param>
+	/// <returns>最大値</returns>
+	public static float ArrayMax(params float[] _array)
+	{
+		float max = _array[0];
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] > max)
+				max = _array[i];
+		}
+		return max;
+	}
+
+	#endregion
+
 	#region GetRandomIndex(重みづけされた配列からランダムな添え字を返す)
 
 	/// <summary>
