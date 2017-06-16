@@ -1,4 +1,5 @@
-﻿//Copyright(c) 2017 Akase Matsuura
+﻿#region License
+//Copyright(c) 2017 Akase Matsuura
 //https://github.com/LightGive/SystemCalc
 
 //Permission is hereby granted, free of charge, to any person obtaining a
@@ -19,8 +20,7 @@
 //LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 //OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 //WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
+#endregion
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -378,6 +378,20 @@ public static　class SystemCalc
 		}
 	}
 
+	#endregion
+
+	#region
+
+	/// <summary>
+	/// ベクトルから角度に直す
+	/// </summary>
+	/// <param name="_vec">ベクトル</param>
+	/// <returns>角度</returns>
+	public static float VectorToAngle(Vector2 _vec)
+	{
+		return Mathf.Atan2(_vec.normalized.y, _vec.normalized.x) * Mathf.Rad2Deg;
+	}
+	
 	#endregion
 
 	#region ArraySum(配列内の要素を合計する)
