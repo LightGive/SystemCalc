@@ -1,4 +1,27 @@
-﻿using System;
+﻿#region License
+//Copyright(c) 2017 Akase Matsuura
+//https://github.com/LightGive/SystemCalc
+
+//Permission is hereby granted, free of charge, to any person obtaining a
+//copy of this software and associated documentation files (the
+//"Software"), to deal in the Software without restriction, including
+//without limitation the rights to use, copy, modify, merge, publish, 
+//distribute, sublicense, and/or sell copies of the Software, and to
+//permit persons to whom the Software is furnished to do so, subject to
+//the following conditions:
+
+//The above copyright notice and this permission notice shall be
+//included in all copies or substantial portions of the Software.
+
+//THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+//EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+//MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+//LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+//OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+//WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#endregion
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +52,45 @@ public static　class SystemCalc
 	/// </summary>
 	private static readonly Vector3 DefaultGravitationalAccelerationVec = new Vector3(0.0f, DefaultGravitationalAcceleration, 0.0f);
 
+	#region 使いまわすメンバ変数
+
+	//int
+	private static int int_1;
+	private static int int_2;
+	private static int int_3;
+	private static int int_4;
+	private static int int_5;
+	private static int int_6;
+	private static int int_7;
+	private static int int_8;
+	private static int int_9;
+	private static int int_10;
+
+	//float
+	private static float float_1;
+	private static float float_2;
+	private static float float_3;
+	private static float float_4;
+	private static float float_5;
+	private static float float_6;
+	private static float float_7;
+	private static float float_8;
+	private static float float_9;
+	private static float float_10;
+	
+	//Vector3
+	private static Vector3 vector3_1;
+	private static Vector3 vector3_2;
+	private static Vector3 vector3_3;
+	private static Vector3 vector3_4;
+	private static Vector3 vector3_5;
+	private static Vector3 vector3_6;
+	private static Vector3 vector3_7;
+	private static Vector3 vector3_8;
+	private static Vector3 vector3_9;
+	private static Vector3 vector3_10;
+	
+	#endregion
 
 	#region GetVelocityTopTime (初速を加えた時、何秒後に頂点に達するかを求める)
 
@@ -234,7 +296,6 @@ public static　class SystemCalc
 
 	#endregion
 
-
 	#region GetLineNearPoint(ある座標の直線上の一番近い座標を求める)
 
 	/// <summary>
@@ -267,7 +328,7 @@ public static　class SystemCalc
 
 	#endregion
 
-	#region GetLineCircleIntersection（円と線との交点を求める）
+	#region GetCircleLineIntersection（円と線との交点を求める）
 
 	/// <summary>
 	/// 円と線との交点を求める
@@ -279,14 +340,14 @@ public static　class SystemCalc
 	/// <param name="_intersectionPoint1">交点１</param>
 	/// <param name="_intersectionPoint2">交点２</param>
 	/// <returns>円と点が接するか</returns>
-	public static bool GetLineCircleIntersection(Vector2 _linePoint1, Vector2 _linePoint2, Vector2 _circleCenter, float _circleRadius, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
+	public static bool GetCircleLineIntersection(Vector2 _linePoint1, Vector2 _linePoint2, Vector2 _circleCenter, float _circleRadius, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
 	{
-		var a = _linePoint2.y - _linePoint1.y;
-		var b = _linePoint1.x - _linePoint2.x;
-		var c = -((a * _linePoint1.x) + (b * _linePoint1.y));
-		var l = (a * a) + (b * b);
-		var k = a * _circleCenter.x + b * _circleCenter.y + c;
-		var d = l * _circleRadius * _circleRadius - k * k;
+		float_1 = _linePoint2.y - _linePoint1.y;
+		float_2 = _linePoint1.x - _linePoint2.x;
+		float_3 = -((float_1 * _linePoint1.x) + (float_2 * _linePoint1.y));
+		float_4 = (float_1 * float_1) + (float_2 * float_2);
+		float_5 = float_1 * _circleCenter.x + float_2 * _circleCenter.y + float_3;
+		float_6 = float_4 * _circleRadius * _circleRadius - float_5 * float_5;
 
 		_intersectionPoint1 = Vector2.zero;
 		_intersectionPoint2 = Vector2.zero;
@@ -294,22 +355,19 @@ public static　class SystemCalc
 		if (_linePoint1 == _linePoint2)
 			return false;
 
-		if (d > 0)
+		if (float_6 > 0)
 		{
-			var ds = Mathf.Sqrt(d);
-			var apl = a / l;
-			var bpl = b / l;
-			var xc = _circleCenter.x - apl * k;
-			var yc = _circleCenter.y - bpl * k;
-			var xd = bpl * ds;
-			var yd = apl * ds;
-			_intersectionPoint1 = new Vector2(xc - xd, yc + yd);
-			_intersectionPoint2 = new Vector2(xc + xd, yc - yd);
+			float_7 = _circleCenter.x - (float_1 / float_4) * float_5;
+			float_8 = _circleCenter.y - (float_2 / float_4) * float_5;
+			float_9 = (float_2 / float_4) * Mathf.Sqrt(float_6);
+			float_10 = (float_1 / float_4) * Mathf.Sqrt(float_6);
+			_intersectionPoint1 = new Vector2(float_7 - float_9, float_8 + float_10);
+			_intersectionPoint2 = new Vector2(float_7 + float_9, float_8 - float_10);
 			return true;
 		}
-		else if (d == 0)
+		else if (float_6 == 0)
 		{
-			var contactPoint = new Vector2(_circleCenter.x - a * k / l, _circleCenter.y - b * k / l);
+			var contactPoint = new Vector2(_circleCenter.x - float_1 * float_5 / float_4, _circleCenter.y - float_2 * float_5 / float_4);
 			_intersectionPoint1 = contactPoint;
 			_intersectionPoint2 = contactPoint;
 			return true;
@@ -322,6 +380,19 @@ public static　class SystemCalc
 
 	#endregion
 
+	#region
+
+	/// <summary>
+	/// ベクトルから角度に直す
+	/// </summary>
+	/// <param name="_vec">ベクトル</param>
+	/// <returns>角度</returns>
+	public static float VectorToAngle(Vector2 _vec)
+	{
+		return Mathf.Atan2(_vec.normalized.y, _vec.normalized.x) * Mathf.Rad2Deg;
+	}
+	
+	#endregion
 
 	#region ArraySum(配列内の要素を合計する)
 
@@ -399,76 +470,7 @@ public static　class SystemCalc
 		return max;
 	}
 
-	/// <summary>
-	/// 配列内の最大値を返す
-	/// </summary>
-	/// <param name="_array">配列</param>
-	/// <returns>最大値</returns>
-	public static double ArrayMax(params double[] _array)
-	{
-		double max = _array[0];
-		for (int i = 0; i < _array.Length; i++)
-		{
-			if (_array[i] > max)
-				max = _array[i];
-		}
-		return max;
-	}
-
 	#endregion
-
-	#region ArrayMin(配列内の要素で最小の値を返す)
-
-	/// <summary>
-	/// 配列内の最小値を返す
-	/// </summary>
-	/// <param name="_array">配列</param>
-	/// <returns>最小値</returns>
-	public static int ArrayMin(params int[] _array)
-	{
-		int min = _array[0];
-		for (int i = 0; i < _array.Length; i++)
-		{
-			if (_array[i] < min)
-				min = _array[i];
-		}
-		return min;
-	}
-
-	/// <summary>
-	/// 配列内の最小値を返す
-	/// </summary>
-	/// <param name="_array">配列</param>
-	/// <returns>最小値</returns>
-	public static float ArrayMin(params float[] _array)
-	{
-		float min = _array[0];
-		for (int i = 0; i < _array.Length; i++)
-		{
-			if (_array[i] < min)
-				min = _array[i];
-		}
-		return min;
-	}
-
-	/// <summary>
-	/// 配列内の最小値を返す
-	/// </summary>
-	/// <param name="_array">配列</param>
-	/// <returns>最小値</returns>
-	public static double ArrayMin(params double[] _array)
-	{
-		double min = _array[0];
-		for (int i = 0; i < _array.Length; i++)
-		{
-			if (_array[i] < min)
-				min = _array[i];
-		}
-		return min;
-	}
-
-	#endregion
-
 
 	#region GetRandomIndex(重みづけされた配列からランダムな添え字を返す)
 
@@ -510,14 +512,14 @@ public static　class SystemCalc
 
 	#endregion
 
-	#region GetRandomDateTime(開始時間と終了時間をランダムで返す)
+	#region RandomDateTime(開始時間と終了時間をランダムで返す)
 	/// <summary>
 	///	開始時間と終了時間の間をランダムで返す計算をする
 	/// </summary>
 	/// <param name="_startDateTime">開始時間</param>
 	/// <param name="_endDatetime">終了時間</param>
 	/// <returns>開始時間～終了時間の間のランダムな時間</returns>
-	public static DateTime GetRandomDateTime(DateTime _startDateTime, DateTime _endDatetime)
+	public static DateTime RandomDateTime(DateTime _startDateTime, DateTime _endDatetime)
 	{
 		if (_startDateTime > _endDatetime)
 			return _startDateTime;
