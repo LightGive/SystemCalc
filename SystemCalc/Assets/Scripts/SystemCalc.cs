@@ -29,7 +29,7 @@ using UnityEngine;
 /// <summary>
 /// 様々な計算を扱うクラス
 /// </summary>
-public static　class SystemCalc
+public static class SystemCalc
 {
 	/// <summary>
 	/// 通常の重力加速度
@@ -77,7 +77,7 @@ public static　class SystemCalc
 	private static float float_8;
 	private static float float_9;
 	private static float float_10;
-	
+
 	//Vector3
 	private static Vector3 vector3_1;
 	private static Vector3 vector3_2;
@@ -89,7 +89,7 @@ public static　class SystemCalc
 	private static Vector3 vector3_8;
 	private static Vector3 vector3_9;
 	private static Vector3 vector3_10;
-	
+
 	#endregion
 
 	#region GetVelocityTopTime (初速を加えた時、何秒後に頂点に達するかを求める)
@@ -271,7 +271,7 @@ public static　class SystemCalc
 		return GetVelocityTimeToPosition(_vec, _startPos, _time, DefaultGravitationalAccelerationVec);
 	}
 
-	public static Vector3 GetVelocityTimeToPosition(Vector3 _vec, Vector3 _startPos, float _time, Vector3 _gravity, float _mass = DefaultMass, float _drag=DefaultDrag)
+	public static Vector3 GetVelocityTimeToPosition(Vector3 _vec, Vector3 _startPos, float _time, Vector3 _gravity, float _mass = DefaultMass, float _drag = DefaultDrag)
 	{
 		return new Vector3(_vec.x * _time, _vec.y * _time, _vec.z * _time) + _startPos;
 	}
@@ -280,7 +280,7 @@ public static　class SystemCalc
 
 	#region GetFreeFallTime (空気抵抗を含む指定距離の自由落下する時間を求める)
 
-	public static float GetFreeFallTime(float _height, float _gravity,float _mass, float _drag)
+	public static float GetFreeFallTime(float _height, float _gravity, float _mass, float _drag)
 	{
 		return Mathf.Sqrt(_mass / (-_gravity * _drag)) * (float)System.Math.Acos((_height * _drag) / _mass);
 	}
@@ -318,7 +318,7 @@ public static　class SystemCalc
 	/// <param name="_checkPoint">チェックする座標</param>
 	/// <param name="_isLimit">ポイントの間に制限をかけるか</param>
 	/// <returns>直線状の一番近い座標</returns>
-	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint,bool _isLimit = false)
+	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint, bool _isLimit = false)
 	{
 		var x = Vector3.Dot((_linePoint2 - _linePoint1).normalized, (_checkPoint - _linePoint1));
 		if (_isLimit)
@@ -328,7 +328,7 @@ public static　class SystemCalc
 
 	#endregion
 
-	#region GetCircleLineIntersection（円と線との交点を求める）
+	#region 交点を求める
 
 	/// <summary>
 	/// 円と線との交点を求める
@@ -340,7 +340,7 @@ public static　class SystemCalc
 	/// <param name="_intersectionPoint1">交点１</param>
 	/// <param name="_intersectionPoint2">交点２</param>
 	/// <returns>円と点が接するか</returns>
-	public static bool GetCircleLineIntersection(Vector2 _linePoint1, Vector2 _linePoint2, Vector2 _circleCenter, float _circleRadius, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
+	public static bool GetIntersectionOfLineAndCircle(Vector2 _linePoint1, Vector2 _linePoint2, Vector2 _circleCenter, float _circleRadius, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
 	{
 		float_1 = _linePoint2.y - _linePoint1.y;
 		float_2 = _linePoint1.x - _linePoint2.x;
@@ -377,6 +377,14 @@ public static　class SystemCalc
 			return false;
 		}
 	}
+
+
+	public static bool GetIntersectionOfCircleAndCircle(Vector2 _circlePoint1, Vector2 _circlePoint2, float _circleRadius1, float _circleRadius2, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
+	{
+
+
+	}
+
 
 	#endregion
 

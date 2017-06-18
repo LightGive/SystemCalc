@@ -30,7 +30,7 @@ public class LineCircleTest : MonoBehaviour
 		var contactPoint1 = Vector2.zero;
 		var contactPoint2 = Vector2.zero;
 
-		if (SystemCalc.GetLineCircleIntersection(
+		if (SystemCalc.GetIntersectionOfLineAndCircle(
 			new Vector2(p1.position.x,p1.position.y), 
 			new Vector2(p2.position.x, p2.position.y),
 			new Vector2(circle.transform.position.x, circle.transform.position.y),
