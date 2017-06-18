@@ -379,8 +379,18 @@ public static class SystemCalc
 	}
 
 
-	public static bool GetIntersectionOfCircleAndCircle(Vector2 _circlePoint1, Vector2 _circlePoint2, float _circleRadius1, float _circleRadius2, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
+	public static bool GetIntersectionOfCircleAndCircle(Vector2 _circlePoint1, float _circleRadius1, Vector2 _circlePoint2, float _circleRadius2, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
 	{
+
+		_intersectionPoint1 = Vector2.zero;
+		_intersectionPoint2 = Vector2.zero;
+		var v = _circlePoint2 - _circlePoint1;
+		var d = v.magnitude;
+		var a = Math.Atan2(v.y, v.x);
+
+		return true;
+
+
 
 
 	}
