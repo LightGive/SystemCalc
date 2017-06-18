@@ -234,6 +234,7 @@ public static　class SystemCalc
 
 	#endregion
 
+
 	#region GetLineNearPoint(ある座標の直線上の一番近い座標を求める)
 
 	/// <summary>
@@ -266,7 +267,7 @@ public static　class SystemCalc
 
 	#endregion
 
-	#region GetCircleLineIntersection（円と線との交点を求める）
+	#region GetLineCircleIntersection（円と線との交点を求める）
 
 	/// <summary>
 	/// 円と線との交点を求める
@@ -278,7 +279,7 @@ public static　class SystemCalc
 	/// <param name="_intersectionPoint1">交点１</param>
 	/// <param name="_intersectionPoint2">交点２</param>
 	/// <returns>円と点が接するか</returns>
-	public static bool GetCircleLineIntersection(Vector2 _linePoint1, Vector2 _linePoint2, Vector2 _circleCenter, float _circleRadius, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
+	public static bool GetLineCircleIntersection(Vector2 _linePoint1, Vector2 _linePoint2, Vector2 _circleCenter, float _circleRadius, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
 	{
 		var a = _linePoint2.y - _linePoint1.y;
 		var b = _linePoint1.x - _linePoint2.x;
@@ -320,6 +321,7 @@ public static　class SystemCalc
 	}
 
 	#endregion
+
 
 	#region ArraySum(配列内の要素を合計する)
 
@@ -397,7 +399,76 @@ public static　class SystemCalc
 		return max;
 	}
 
+	/// <summary>
+	/// 配列内の最大値を返す
+	/// </summary>
+	/// <param name="_array">配列</param>
+	/// <returns>最大値</returns>
+	public static double ArrayMax(params double[] _array)
+	{
+		double max = _array[0];
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] > max)
+				max = _array[i];
+		}
+		return max;
+	}
+
 	#endregion
+
+	#region ArrayMin(配列内の要素で最小の値を返す)
+
+	/// <summary>
+	/// 配列内の最小値を返す
+	/// </summary>
+	/// <param name="_array">配列</param>
+	/// <returns>最小値</returns>
+	public static int ArrayMin(params int[] _array)
+	{
+		int min = _array[0];
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] < min)
+				min = _array[i];
+		}
+		return min;
+	}
+
+	/// <summary>
+	/// 配列内の最小値を返す
+	/// </summary>
+	/// <param name="_array">配列</param>
+	/// <returns>最小値</returns>
+	public static float ArrayMin(params float[] _array)
+	{
+		float min = _array[0];
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] < min)
+				min = _array[i];
+		}
+		return min;
+	}
+
+	/// <summary>
+	/// 配列内の最小値を返す
+	/// </summary>
+	/// <param name="_array">配列</param>
+	/// <returns>最小値</returns>
+	public static double ArrayMin(params double[] _array)
+	{
+		double min = _array[0];
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] < min)
+				min = _array[i];
+		}
+		return min;
+	}
+
+	#endregion
+
 
 	#region GetRandomIndex(重みづけされた配列からランダムな添え字を返す)
 
@@ -439,14 +510,14 @@ public static　class SystemCalc
 
 	#endregion
 
-	#region RandomDateTime(開始時間と終了時間をランダムで返す)
+	#region GetRandomDateTime(開始時間と終了時間をランダムで返す)
 	/// <summary>
 	///	開始時間と終了時間の間をランダムで返す計算をする
 	/// </summary>
 	/// <param name="_startDateTime">開始時間</param>
 	/// <param name="_endDatetime">終了時間</param>
 	/// <returns>開始時間～終了時間の間のランダムな時間</returns>
-	public static DateTime RandomDateTime(DateTime _startDateTime, DateTime _endDatetime)
+	public static DateTime GetRandomDateTime(DateTime _startDateTime, DateTime _endDatetime)
 	{
 		if (_startDateTime > _endDatetime)
 			return _startDateTime;
