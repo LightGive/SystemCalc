@@ -29,4 +29,4 @@ Unityで、物理関係等の計算などをする
 ・基準点と視野角と相手の座標を渡して視界内にあるか<br>
 
 ## License<br>
-See [LICENSE.md][License] (hint: MIT).
+See [\LICENSE.md](hint: MIT).
