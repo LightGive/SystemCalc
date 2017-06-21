@@ -3,12 +3,12 @@ Unityで、物理関係等の計算などをする
 
 
 ## 関数リスト  
-* GetVelocityTopTime (初速を加えた時、何秒後に頂点に達するかを求める)  
-* GetVelocityTopHeight (初速を加えた時の最高地点の高さを求める)  
-* GetVelocityTopPos (初速を加えた時の最高地点の座標を求める)  
-* GetCircleLineIntersection (円と線の交点を求める)  
-・配列内の一番大きい値を返す  
-・配列内の一番小さい値を返す
+* GetVelocityTopTime (初速を加えた時、何秒後に頂点に達するかを求める)<br>
+* GetVelocityTopHeight (初速を加えた時の最高地点の高さを求める)<br>
+* GetVelocityTopPos (初速を加えた時の最高地点の座標を求める)<br>
+* GetCircleLineIntersection (円と線の交点を求める)<br>
+* 配列内の一番大きい値を返す<br>
+* 配列内の一番小さい値を返す<br>
 
 
 ## 今後追加  
