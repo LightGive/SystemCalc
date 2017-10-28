@@ -1,5 +1,5 @@
-# SystemCalc  
-Unityで、物理関係等の計算などをする  
+# SystemCalc<br>
+Unityで、物理関係や回転・角度等の計算をする<br>
 
 
 ## List of Functions<br>
