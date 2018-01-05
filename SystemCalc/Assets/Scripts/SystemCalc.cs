@@ -271,16 +271,40 @@ public static class SystemCalc
 		return GetVelocityTimeToPosition(_vec, _startPos, _time, DefaultGravitationalAccelerationVec);
 	}
 
+    /// <summary>
+    /// 初速を加えた後指定秒数後にどの座標にいるか
+    /// </summary>
+    /// <returns>The velocity time to position.</returns>
+    /// <param name="_vec">Vec.</param>
+    /// <param name="_startPos">Start position.</param>
+    /// <param name="_time">Time.</param>
+    /// <param name="_gravity">Gravity.</param>
+    /// <param name="_mass">Mass.</param>
+    /// <param name="_drag">Drag.</param>
 	public static Vector3 GetVelocityTimeToPosition(Vector3 _vec, Vector3 _startPos, float _time, Vector3 _gravity, float _mass = DefaultMass, float _drag = DefaultDrag)
 	{
 		return new Vector3(_vec.x * _time, _vec.y * _time, _vec.z * _time) + _startPos;
 	}
 
-	#endregion
+    #endregion
 
-	#region GetFreeFallTime (空気抵抗を含む指定距離の自由落下する時間を求める)
+    #region GetVelocityGroundFallTimeVec (指定秒数後に指定の地面に落ちる初速を求める)
 
-	public static float GetFreeFallTime(float _height, float _gravity, float _mass, float _drag)
+    public static bool GetVelocityGroundFallTimeVec(ref Vector3 _vec, Vector3 _startPos, Vector3 _targetPos, float _time, float _gravity = DefaultGravitationalAcceleration)
+    {
+        var offset = _targetPos.y - _startPos.y;
+        var x = (_targetPos.x - _startPos.x) / _time;
+        var z = (_targetPos.z - _startPos.z) / _time;
+        var y = (_targetPos.y / _time) + (0.5f * _gravity * _time) - (_startPos.y / _time);
+        _vec = new Vector3(x, -y, z);
+        return true;
+    }
+
+    #endregion
+
+    #region GetFreeFallTime (空気抵抗を含む指定距離の自由落下する時間を求める)
+
+    public static float GetFreeFallTime(float _height, float _gravity, float _mass, float _drag)
 	{
 		return Mathf.Sqrt(_mass / (-_gravity * _drag)) * (float)System.Math.Acos((_height * _drag) / _mass);
 	}
