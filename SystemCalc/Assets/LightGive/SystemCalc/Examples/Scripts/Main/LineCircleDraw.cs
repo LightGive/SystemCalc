@@ -4,6 +4,7 @@
 /// LineRendererで円を描く
 /// </summary>
 [RequireComponent(typeof(LineRenderer))]
+[ExecuteInEditMode]
 public class LineCircleDraw : MonoBehaviour
 {
 	[SerializeField,Range(4, 1000),Tooltip("円の頂点数")]
