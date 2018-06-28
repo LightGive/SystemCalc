@@ -20,7 +20,6 @@ public class LineCircleDraw : MonoBehaviour
 	[SerializeField, Tooltip("円の軸")]
 	private Axis m_axis = Axis.Z;
 
-
 	private LineRenderer m_line;
 
 	/// <summary>
