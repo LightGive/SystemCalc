@@ -52,35 +52,6 @@ public static class SystemCalc
 	/// </summary>
 	private static readonly Vector3 DefaultGravitationalAccelerationVec = new Vector3(0.0f, DefaultGravitationalAcceleration, 0.0f);
 
-	#region 使いまわすメンバ変数
-
-	//int
-	private static int int_1;
-	private static int int_2;
-	private static int int_3;
-	private static int int_4;
-	private static int int_5;
-	private static int int_6;
-	private static int int_7;
-	private static int int_8;
-	private static int int_9;
-	private static int int_10;
-
-
-	//Vector3
-	private static Vector3 vector3_1;
-	private static Vector3 vector3_2;
-	private static Vector3 vector3_3;
-	private static Vector3 vector3_4;
-	private static Vector3 vector3_5;
-	private static Vector3 vector3_6;
-	private static Vector3 vector3_7;
-	private static Vector3 vector3_8;
-	private static Vector3 vector3_9;
-	private static Vector3 vector3_10;
-
-	#endregion
-
 	#region GetVelocityTopTime (初速を加えた時、何秒後に頂点に達するかを求める)
 
 	/// <summary>
@@ -378,7 +349,7 @@ public static class SystemCalc
 			_intersectionPoint2 = new Vector2(float_7 + float_9, float_8 - float_10);
 			return true;
 		}
-		else if ( float_6 == 0.0f)
+		else if (float_6.Equals(0.0f))
 		{
 			var contactPoint = new Vector2(_circleCenter.x - float_1 * float_5 / float_4, _circleCenter.y - float_2 * float_5 / float_4);
 			_intersectionPoint1 = contactPoint;
@@ -402,10 +373,6 @@ public static class SystemCalc
 		var a = Math.Atan2(v.y, v.x);
 
 		return true;
-
-
-
-
 	}
 
 
