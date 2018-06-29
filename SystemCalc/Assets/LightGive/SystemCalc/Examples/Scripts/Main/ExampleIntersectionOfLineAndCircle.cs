@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LineCircleTest : MonoBehaviour
+public class ExampleIntersectionOfLineAndCircle: MonoBehaviour
 {
 	[SerializeField]
 	private Transform p1;
@@ -31,15 +31,22 @@ public class LineCircleTest : MonoBehaviour
 		var contactPoint2 = Vector2.zero;
 
 		if (SystemCalc.GetIntersectionOfLineAndCircle(
-			new Vector2(p1.position.x,p1.position.y), 
+			new Vector2(p1.position.x, p1.position.y),
 			new Vector2(p2.position.x, p2.position.y),
 			new Vector2(circle.transform.position.x, circle.transform.position.y),
 			circle.radius,
 			out contactPoint1,
 			out contactPoint2))
 		{
+			intersectionPoint1.gameObject.SetActive(!contactPoint1.Equals(Vector2.zero));
+			intersectionPoint2.gameObject.SetActive(!contactPoint2.Equals(Vector2.zero));
 			intersectionPoint1.position = contactPoint1;
 			intersectionPoint2.position = contactPoint2;
+		}
+		else
+		{
+			intersectionPoint1.gameObject.SetActive(false);
+			intersectionPoint2.gameObject.SetActive(false);
 		}
 	}
 }
