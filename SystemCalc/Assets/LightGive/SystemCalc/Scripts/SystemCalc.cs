@@ -66,17 +66,6 @@ public static class SystemCalc
 	private static int int_9;
 	private static int int_10;
 
-	//float
-	private static float float_1;
-	private static float float_2;
-	private static float float_3;
-	private static float float_4;
-	private static float float_5;
-	private static float float_6;
-	private static float float_7;
-	private static float float_8;
-	private static float float_9;
-	private static float float_10;
 
 	//Vector3
 	private static Vector3 vector3_1;
@@ -366,12 +355,12 @@ public static class SystemCalc
 	/// <returns>円と点が接するか</returns>
 	public static bool GetIntersectionOfLineAndCircle(Vector2 _linePoint1, Vector2 _linePoint2, Vector2 _circleCenter, float _circleRadius, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
 	{
-		float_1 = _linePoint2.y - _linePoint1.y;
-		float_2 = _linePoint1.x - _linePoint2.x;
-		float_3 = -((float_1 * _linePoint1.x) + (float_2 * _linePoint1.y));
-		float_4 = (float_1 * float_1) + (float_2 * float_2);
-		float_5 = float_1 * _circleCenter.x + float_2 * _circleCenter.y + float_3;
-		float_6 = float_4 * _circleRadius * _circleRadius - float_5 * float_5;
+		float float_1 = _linePoint2.y - _linePoint1.y;
+		float float_2 = _linePoint1.x - _linePoint2.x;
+		float float_3 = -((float_1 * _linePoint1.x) + (float_2 * _linePoint1.y));
+		float float_4 = (float_1 * float_1) + (float_2 * float_2);
+		float float_5 = float_1 * _circleCenter.x + float_2 * _circleCenter.y + float_3;
+		float float_6 = float_4 * _circleRadius * _circleRadius - float_5 * float_5;
 
 		_intersectionPoint1 = Vector2.zero;
 		_intersectionPoint2 = Vector2.zero;
@@ -381,15 +370,15 @@ public static class SystemCalc
 
 		if (float_6 > 0)
 		{
-			float_7 = _circleCenter.x - (float_1 / float_4) * float_5;
-			float_8 = _circleCenter.y - (float_2 / float_4) * float_5;
-			float_9 = (float_2 / float_4) * Mathf.Sqrt(float_6);
-			float_10 = (float_1 / float_4) * Mathf.Sqrt(float_6);
+			float float_7 = _circleCenter.x - (float_1 / float_4) * float_5;
+			float float_8 = _circleCenter.y - (float_2 / float_4) * float_5;
+			float float_9 = (float_2 / float_4) * Mathf.Sqrt(float_6);
+			float float_10 = (float_1 / float_4) * Mathf.Sqrt(float_6);
 			_intersectionPoint1 = new Vector2(float_7 - float_9, float_8 + float_10);
 			_intersectionPoint2 = new Vector2(float_7 + float_9, float_8 - float_10);
 			return true;
 		}
-		else if (float_6 == 0)
+		else if ( float_6 == 0.0f)
 		{
 			var contactPoint = new Vector2(_circleCenter.x - float_1 * float_5 / float_4, _circleCenter.y - float_2 * float_5 / float_4);
 			_intersectionPoint1 = contactPoint;
