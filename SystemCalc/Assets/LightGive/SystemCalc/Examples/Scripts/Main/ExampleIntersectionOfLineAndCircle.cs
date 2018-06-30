@@ -45,6 +45,7 @@ public class ExampleIntersectionOfLineAndCircle: MonoBehaviour
 		}
 		else
 		{
+			Debug.Log("ここ");
 			intersectionPoint1.gameObject.SetActive(false);
 			intersectionPoint2.gameObject.SetActive(false);
 		}
