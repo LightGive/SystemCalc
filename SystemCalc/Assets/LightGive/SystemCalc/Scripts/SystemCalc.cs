@@ -342,6 +342,7 @@ public static class SystemCalc
 		   Vector2.Distance(_circleCenter, _linePoint2) < _circleRadius)
 			return false;
 
+
 		if (float_6 > 0)
 		{
 			float float_7 = _circleCenter.x - (float_1 / float_4) * float_5;
