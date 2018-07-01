@@ -338,6 +338,9 @@ public static class SystemCalc
 
 		if (_linePoint1 == _linePoint2)
 			return false;
+		if (Vector2.Distance(_circleCenter, _linePoint1) < _circleRadius &&
+		   Vector2.Distance(_circleCenter, _linePoint2) < _circleRadius)
+			return false;
 
 		if (float_6 > 0)
 		{
