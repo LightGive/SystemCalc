@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ExampleIntersectionOfLineAndCircle: MonoBehaviour
+public class Example1: MonoBehaviour
 {
 	[SerializeField]
 	private Transform m_p1;

@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{1C0BBEF6-A1B6-46FC-F257-DDADC9B86E0A}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LightGive/Common/LineCircleDraw.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LightGive/SystemCalc/Examples/Scripts/Main/Example2.cs">
     <Files>
       <File FileName="Assets/LightGive/SystemCalc/Scripts/SystemCalc.cs" Line="420" Column="42" />
       <File FileName="Assets/LightGive/Common/Extensions.cs" Line="1" Column="1" />
       <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/PositionDrag.cs" Line="16" Column="20" />
-      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Main/ExampleIntersectionOfLineAndCircle.cs" Line="55" Column="40" />
       <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Main/LineNearPointTest.cs" Line="17" Column="2" />
-      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Main/CircleToCirclePoint.cs" Line="39" Column="50" />
-      <File FileName="Assets/LightGive/Common/LineCircleDraw.cs" Line="31" Column="27" />
+      <File FileName="Assets/LightGive/Common/LineCircleDraw.cs" Line="33" Column="22" />
+      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Main/Example1.cs" Line="11" Column="25" />
+      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Main/Example2.cs" Line="8" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
