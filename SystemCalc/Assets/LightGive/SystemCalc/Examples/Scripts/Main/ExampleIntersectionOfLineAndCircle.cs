@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExampleIntersectionOfLineAndCircle: MonoBehaviour
 {
 	[SerializeField]
-	private Transform p1;
+	private Transform m_p1;
 	[SerializeField]
-	private Transform p2;
+	private Transform m_p2;
 	[SerializeField]
 	private Transform intersectionPoint1;
 	[SerializeField]
@@ -16,20 +17,22 @@ public class ExampleIntersectionOfLineAndCircle: MonoBehaviour
 	private LineRenderer line;
 	[SerializeField]
 	private LineCircleDraw circle;
+	[SerializeField]
+	private InputField m_inputFieldCircleRad;
 
 	
 	void Update ()
 	{
-		line.SetPosition(0, p1.position);
-		line.SetPosition(1, p2.position);
+		line.SetPosition(0, m_p1.position);
+		line.SetPosition(1, m_p2.position);
 
 		var contactPoint1 = Vector2.zero;
 		var contactPoint2 = Vector2.zero;
 		var h = Vector2.zero;
 
 		if (SystemCalc.GetIntersectionOfLineAndCircle(
-			new Vector2(p1.position.x, p1.position.y),
-			new Vector2(p2.position.x, p2.position.y),
+			new Vector2(m_p1.position.x, m_p1.position.y),
+			new Vector2(m_p2.position.x, m_p2.position.y),
 			new Vector2(circle.transform.position.x, circle.transform.position.y),
 			circle.radius,
 			out contactPoint1,

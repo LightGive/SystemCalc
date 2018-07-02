@@ -35,6 +35,8 @@ public class CircleToCirclePoint : MonoBehaviour
 
 		if (isContact)
 		{
+			intersectionPoint1.gameObject.SetActive(true);
+			intersectionPoint2.gameObject.SetActive(true);
 			intersectionPoint1.position = point1;
 			intersectionPoint2.position = point2;
 		}
