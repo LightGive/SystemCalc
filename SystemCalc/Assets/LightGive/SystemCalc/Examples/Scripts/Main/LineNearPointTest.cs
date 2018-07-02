@@ -5,27 +5,21 @@ using UnityEngine;
 public class LineNearPointTest : MonoBehaviour {
 
 	[SerializeField]
-	private Transform p1;
+	private Transform m_p1;
 	[SerializeField]
-	private Transform p2;
+	private Transform m_p2;
 	[SerializeField]
-	private Transform nearPoint;
+	private Transform m_nearPoint;
 	[SerializeField]
-	private Transform gizmos;
+	private Transform m_dragPoint;
 	[SerializeField]
-	private LineRenderer line;
-
-	void Start ()
-	{
-		int[] a = new int[] { 1, 10, 3, 4, 2 };
-		Debug.Log(SystemCalc.ArraySum(a));
-	}
+	private LineRenderer m_line;
 
 	void Update ()
 	{
-		line.SetPosition(0, p1.position);
-		line.SetPosition(1, p2.position);
+		m_line.SetPosition(0, m_p1.position);
+		m_line.SetPosition(1, m_p2.position);
 
-		gizmos.position = SystemCalc.GetLineNearPoint(p1.position, p2.position, nearPoint.position, true);
+		m_dragPoint.position = SystemCalc.GetLineNearPoint(m_p1.position, m_p2.position, m_nearPoint.position, true);
 	}
 }

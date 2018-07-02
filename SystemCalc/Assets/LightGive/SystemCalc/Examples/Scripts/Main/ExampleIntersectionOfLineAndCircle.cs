@@ -17,10 +17,6 @@ public class ExampleIntersectionOfLineAndCircle: MonoBehaviour
 	[SerializeField]
 	private LineCircleDraw circle;
 
-	void Start ()
-	{
-		line.positionCount = 2;	
-	}
 	
 	void Update ()
 	{
