@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LineNearPointTest : MonoBehaviour {
+
+public class Example3 : MonoBehaviour {
 
 	[SerializeField]
 	private Transform m_p1;
@@ -14,6 +15,8 @@ public class LineNearPointTest : MonoBehaviour {
 	private Transform m_dragPoint;
 	[SerializeField]
 	private LineRenderer m_line;
+
+
 
 	void Update ()
 	{

@@ -291,7 +291,8 @@ public static class SystemCalc
 	/// <returns>直線状の一番近い座標</returns>
 	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint)
 	{
-		return GetLineNearPoint(_linePoint1, _linePoint2, _checkPoint, false);
+		float lerp = 0.0f;
+		return GetLineNearPoint(_linePoint1, _linePoint2, _checkPoint, false, out lerp);
 	}
 
 	/// <summary>
@@ -302,12 +303,16 @@ public static class SystemCalc
 	/// <param name="_checkPoint">チェックする座標</param>
 	/// <param name="_isLimit">ポイントの間に制限をかけるか</param>
 	/// <returns>直線状の一番近い座標</returns>
-	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint, bool _isLimit = false)
+	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint, bool _isLimit, out float _lerp)
 	{
 		var x = Vector3.Dot((_linePoint2 - _linePoint1).normalized, (_checkPoint - _linePoint1));
 		if (_isLimit)
+		{
 			x = Mathf.Clamp(x, 0.0f, Vector3.Distance(_linePoint1, _linePoint2));
-		return _linePoint1 + (_linePoint2 - _linePoint1).normalized * x;
+		}
+		var nearPoint = _linePoint1 + (_linePoint2 - _linePoint1).normalized * x;
+		_lerp = x / Vector3.Distance(_linePoint1, _linePoint2);
+		return nearPoint;
 	}
 
 	#endregion
@@ -398,6 +403,16 @@ public static class SystemCalc
 	}
 
 
+	/// <summary>
+	/// 円と円の交点の座標を求める
+	/// </summary>
+	/// <returns><c>true</c>円と円が交わっている時<c>false</c>円と円が交わらない時</returns>
+	/// <param name="_circlePoint1">円1の座標</param>
+	/// <param name="_circleRadius1">円1の半径</param>
+	/// <param name="_circlePoint2">円2の座標</param>
+	/// <param name="_circleRadius2">円2の半径</param>
+	/// <param name="_intersectionPoint1">交点1</param>
+	/// <param name="_intersectionPoint2">交点2</param>
 	public static bool GetIntersectionOfCircleAndCircle(Vector2 _circlePoint1, float _circleRadius1, Vector2 _circlePoint2, float _circleRadius2, out Vector2 _intersectionPoint1, out Vector2 _intersectionPoint2)
 	{
 		_intersectionPoint1 = Vector2.zero;
