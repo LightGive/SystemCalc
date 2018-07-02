@@ -28,6 +28,11 @@ public class LineCircleDraw : MonoBehaviour
 	public float radius
 	{
 		get { return m_radius; }
+		set 
+		{
+			m_radius = value; 
+			CreateCircle();
+		}
 	}
 
 
@@ -68,8 +73,8 @@ public class LineCircleDraw : MonoBehaviour
 
 		for (int i = 0; i < (m_verticesCount + 1); i++)
 		{
-			x = Mathf.Sin(Mathf.Deg2Rad * angle) * m_radius * m_radiusMagnification.x;
-			y = Mathf.Cos(Mathf.Deg2Rad * angle) * m_radius * m_radiusMagnification.y;
+			x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius * m_radiusMagnification.x;
+			y = Mathf.Cos(Mathf.Deg2Rad * angle) * radius * m_radiusMagnification.y;
 
 			switch (m_axis)
 			{
