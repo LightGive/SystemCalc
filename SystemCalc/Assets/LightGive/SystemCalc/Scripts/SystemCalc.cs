@@ -406,7 +406,6 @@ public static class SystemCalc
 		}
 	}
 
-
 	/// <summary>
 	/// 円と円の交点の座標を求める
 	/// </summary>
@@ -451,7 +450,6 @@ public static class SystemCalc
 			return false;
 		}
 	}
-
 
 	#endregion
 
