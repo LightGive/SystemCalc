@@ -14,6 +14,9 @@ Unityで、物理関係や回転・角度等の計算をする<br>
 ## Example <br>
 * GetCircleLineIntersection (円と線の交点を求める)<br>
 <img src="https://78.media.tumblr.com/37909122011ba993119e3f94faa2841a/tumblr_pb88a5YaNJ1u4382eo1_400.gif" alt="サンプル1" title="サンプル"><br>
+* GetIntersectionOfCircleAndCircle (円と円の交点を求める)<br>
+<img src="https://78.media.tumblr.com/807b8b1c3709ad917cea8d7abe48d046/tumblr_pb8hpqvu6Y1u4382eo1_400.gif" alt="サンプル2" title="サンプル"><br>
+
 
 
 
