@@ -11,6 +11,11 @@ Unityで、物理関係や回転・角度等の計算をする<br>
 * GetArrayMin (配列内の一番小さい値を返す)<br>
 
 
+## Example <br>
+* GetCircleLineIntersection (円と線の交点を求める)<br>
+<img src="https://78.media.tumblr.com/37909122011ba993119e3f94faa2841a/tumblr_pb88a5YaNJ1u4382eo1_400.gif" alt="サンプル1" title="サンプル"><br>
+
+
 
 ## Future<br>
 * 初速を加えた時、何秒後に地面に落ちるか<br>
