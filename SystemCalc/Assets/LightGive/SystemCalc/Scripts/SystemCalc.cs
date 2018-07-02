@@ -282,27 +282,31 @@ public static class SystemCalc
 
 	#region GetLineNearPoint(ある座標の直線上の一番近い座標を求める)
 
-	/// <summary>
-	/// ある座標の直線上の一番近い座標を求める
-	/// </summary>
-	/// <param name="_linePoint1">線のポイント１</param>
-	/// <param name="_linePoint2">線のポイント２</param>
-	/// <param name="_checkPoint">チェックする座標</param>
-	/// <returns>直線状の一番近い座標</returns>
-	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint)
-	{
-		float lerp = 0.0f;
-		return GetLineNearPoint(_linePoint1, _linePoint2, _checkPoint, false, out lerp);
-	}
 
 	/// <summary>
-	/// ある座標の直線上の一番近い座標を求める
+	/// 二点間の線上で一番近い座標を求める
 	/// </summary>
-	/// <param name="_linePoint1">線のポイント１</param>
-	/// <param name="_linePoint2">線のポイント２</param>
-	/// <param name="_checkPoint">チェックする座標</param>
-	/// <param name="_isLimit">ポイントの間に制限をかけるか</param>
-	/// <returns>直線状の一番近い座標</returns>
+	/// <returns>線上で一番近い座標</returns>
+	/// <param name="_linePoint1">線の始点</param>
+	/// <param name="_linePoint2">線の終点</param>
+	/// <param name="_checkPoint">確認する座標</param>
+	/// <param name="_isLimit">0-1で制限をかけるかどうか<c>true</c> is limit.</param> 
+	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint,bool _isLimit = false)
+	{
+		float lerp = 0.0f;
+		return GetLineNearPoint(_linePoint1, _linePoint2, _checkPoint, _isLimit, out lerp);
+	}
+
+
+	/// <summary>
+	/// 二点間の線上で一番近い座標を求める
+	/// </summary>
+	/// <returns>線上で一番近い座標</returns>
+	/// <param name="_linePoint1">線の始点</param>
+	/// <param name="_linePoint2">線の終点</param>
+	/// <param name="_checkPoint">確認する座標</param>
+	/// <param name="_isLimit">0-1で制限をかけるかどうか<c>true</c> is limit.</param>
+	/// <param name="_lerp">線の始点から終点を0-1で確認できる</param>
 	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint, bool _isLimit, out float _lerp)
 	{
 		var x = Vector3.Dot((_linePoint2 - _linePoint1).normalized, (_checkPoint - _linePoint1));
