@@ -403,9 +403,27 @@ public static class SystemCalc
 
 		_intersectionPoint1 = Vector2.zero;
 		_intersectionPoint2 = Vector2.zero;
-		var v = _circlePoint2 - _circlePoint1;
-		var d = v.magnitude;
-		var a = Math.Atan2(v.y, v.x);
+		var l = Vector2.Distance(_intersectionPoint1, _intersectionPoint2);
+		var theta = Mathf.Atan2(_circlePoint2.y - _circlePoint1.y, _circlePoint2.x - _circlePoint1.x);
+		var c = (Mathf.Pow(l, 2) + Mathf.Pow(_circleRadius1, 2) - Mathf.Pow(_circleRadius2, 2)) / (2.0f * l * _circleRadius1);
+		var a = Mathf.Cos(c);
+
+		var x1 = _circlePoint1.x + (_circleRadius1 * Mathf.Cos(theta + a));
+		var y1 = _circlePoint1.y + (_circleRadius1 * Mathf.Sin(theta + a));
+		var x2 = _circlePoint1.x + (_circleRadius1 * Mathf.Cos(theta - a));
+		var y2 = _circlePoint1.y + (_circleRadius1 * Mathf.Sin(theta - a));
+
+		_intersectionPoint1 = new Vector2(x1, y1);
+		_intersectionPoint2 = new Vector2(x2, y2);
+
+		//cos（α) = (L2 + R12 - R22) / (2・L・R1) 　　余弦定理
+  		//c = cos(α）とすると、
+  		//α = cos - 1(c) = acos(c) となる。
+
+		//xp1 = xc1 + R1・cos(θ＋α)
+		//yp1 = yc1 + R1・sin(θ＋α)
+		//xp2 = xc1 + R1・cos(θ - α)
+		//yp2 = yc1 + R1・sin(θ - α)
 
 		return true;
 	}
