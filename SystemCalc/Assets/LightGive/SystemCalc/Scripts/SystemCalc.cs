@@ -335,13 +335,12 @@ public static class SystemCalc
 
 		_intersectionPoint1 = Vector2.zero;
 		_intersectionPoint2 = Vector2.zero;
+		Vector2 h = Vector2.zero;
 
-		if (_linePoint1 == _linePoint2)
+		//二点が同じ位置の時や、二点とも円の中にある時は交差しない判定にする
+		if ((_linePoint1 == _linePoint2)||
+		    ((Vector2.Distance(_circleCenter, _linePoint1) < _circleRadius && Vector2.Distance(_circleCenter, _linePoint2) < _circleRadius))) 
 			return false;
-		if (Vector2.Distance(_circleCenter, _linePoint1) < _circleRadius &&
-		   Vector2.Distance(_circleCenter, _linePoint2) < _circleRadius)
-			return false;
-
 
 		if (float_6 > 0)
 		{
@@ -351,7 +350,39 @@ public static class SystemCalc
 			float float_10 = (float_1 / float_4) * Mathf.Sqrt(float_6);
 			_intersectionPoint1 = new Vector2(float_7 - float_9, float_8 + float_10);
 			_intersectionPoint2 = new Vector2(float_7 + float_9, float_8 - float_10);
-			return true;
+			h = new Vector2((_linePoint1.x + _linePoint2.x) / 2.0f, (_linePoint1.y + _linePoint2.y) / 2.0f);
+
+			if ((Vector2.Distance(_circleCenter, _linePoint1) < _circleRadius && Vector2.Distance(_circleCenter, _linePoint2) >= _circleRadius) || (Vector2.Distance(_circleCenter, _linePoint2) < _circleRadius && Vector2.Distance(_circleCenter, _linePoint1) >= _circleRadius))
+			{
+				if (Vector2.Distance(_intersectionPoint1, h) > Vector2.Distance(_intersectionPoint2, h))
+				{ _intersectionPoint1 = Vector2.zero; }
+				else
+				{ _intersectionPoint2 = Vector2.zero; }
+				return true;
+			}
+			else
+			{
+				var v = _linePoint2 - _linePoint1;
+				var c = _circleCenter - _linePoint1;
+				var n1 = Vector2.Dot(v, c);
+
+				if (n1 < 0)
+				{
+					return c.magnitude < _circleRadius;
+				}
+
+				var n2 = Vector2.Dot(v, v);
+				if(n1 > n2)
+				{
+					var len = Mathf.Pow(Vector2.Distance(_circleCenter, _linePoint2), 2);
+					return (len < Mathf.Pow(_circleRadius, 2));
+				}
+				else
+				{
+					var n3 = Vector2.Dot(c, c);
+					return (n3 - (n1 / n2) * n1 < Mathf.Pow(_circleRadius, 2));
+				}
+			}
 		}
 		else if (float_6.Equals(0.0f))
 		{

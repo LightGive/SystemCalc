@@ -29,6 +29,7 @@ public class ExampleIntersectionOfLineAndCircle: MonoBehaviour
 
 		var contactPoint1 = Vector2.zero;
 		var contactPoint2 = Vector2.zero;
+		var h = Vector2.zero;
 
 		if (SystemCalc.GetIntersectionOfLineAndCircle(
 			new Vector2(p1.position.x, p1.position.y),
@@ -45,7 +46,6 @@ public class ExampleIntersectionOfLineAndCircle: MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("ここ");
 			intersectionPoint1.gameObject.SetActive(false);
 			intersectionPoint2.gameObject.SetActive(false);
 		}
