@@ -14,12 +14,11 @@ public class Example : MonoBehaviour
 	private Button m_buttonBack;
 	[SerializeField]
 	private Text m_textSceneTitle;
-
+	[SerializeField]
 	private int m_nowSceneNo;
 
 	private void Start()
 	{
-		m_nowSceneNo = 0;
 		SceneChange();
 	}
 
