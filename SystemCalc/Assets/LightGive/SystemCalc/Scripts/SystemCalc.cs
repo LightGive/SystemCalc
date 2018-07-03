@@ -59,7 +59,7 @@ public static class SystemCalc
 	/// </summary>
 	/// <param name="_vec">初速</param>
 	/// <returns>何秒後に頂点に到達するか</returns>
-	public static float GetVelocityTopTim(float _vec)
+	public static float GetVelocityTopTime(float _vec)
 	{
 		return GetVelocityTopTime(_vec, DefaultGravitationalAccelerationVec);
 	}
