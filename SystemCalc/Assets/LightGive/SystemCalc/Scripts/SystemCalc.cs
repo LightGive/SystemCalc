@@ -68,16 +68,6 @@ public static class SystemCalc
 	/// 初速を加えた時、何秒後に頂点に達するかを求める
 	/// </summary>
 	/// <param name="_vec">初速</param>
-	/// <returns>何秒後に頂点に到達するか</returns>
-	public static float GetVelocityTopTime(Vector3 _vec)
-	{
-		return GetVelocityTopTime(_vec, DefaultGravitationalAccelerationVec);
-	}
-
-	/// <summary>
-	/// 初速を加えた時、何秒後に頂点に達するかを求める
-	/// </summary>
-	/// <param name="_vec">初速</param>
 	/// <param name="_gravity">重力加速度</param>
 	/// <returns>何秒後に頂点に到達するか</returns>
 	public static float GetVelocityTopTime(Vector3 _vec, Vector3 _gravity)
