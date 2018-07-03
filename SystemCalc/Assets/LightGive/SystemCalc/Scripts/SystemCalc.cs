@@ -59,7 +59,7 @@ public static class SystemCalc
 	/// </summary>
 	/// <param name="_vec">初速</param>
 	/// <returns>何秒後に頂点に到達するか</returns>
-	public static float GetVelocityTopTime(float _vec)
+	public static float GetVelocityTopTim(float _vec)
 	{
 		return GetVelocityTopTime(_vec, DefaultGravitationalAccelerationVec);
 	}
@@ -78,10 +78,21 @@ public static class SystemCalc
 	/// <summary>
 	/// 初速を加えた時、何秒後に頂点に達するかを求める
 	/// </summary>
+	/// <returns>頂点に到達する時間</returns>
 	/// <param name="_vec">初速</param>
 	/// <param name="_gravity">重力加速度</param>
-	/// <returns>何秒後に頂点に到達するか</returns>
 	public static float GetVelocityTopTime(Vector3 _vec, float _gravity = DefaultGravitationalAcceleration)
+	{
+		return GetVelocityTopTime(_vec.y, new Vector3(0.0f, _gravity, 0.0f));
+	}
+
+	/// <summary>
+	/// 初速を加えた時、何秒後に頂点に達するかを求める
+	/// </summary>
+	/// <returns>頂点に到達する時間</returns>
+	/// <param name="_vec">初速</param>
+	/// <param name="_gravity">重力加速度</param>
+	public static float GetVelocityTopTime(Vector2 _vec, float _gravity = DefaultGravitationalAcceleration)
 	{
 		return GetVelocityTopTime(_vec.y, new Vector3(0.0f, _gravity, 0.0f));
 	}
@@ -96,6 +107,7 @@ public static class SystemCalc
 	{
 		return Mathf.Clamp(_vec / -_gravity.y, 0.0f, float.PositiveInfinity);
 	}
+
 
 	#endregion
 
