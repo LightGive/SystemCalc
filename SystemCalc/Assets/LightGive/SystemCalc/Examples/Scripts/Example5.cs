@@ -14,13 +14,11 @@ public class Example5 : MonoBehaviour
 	[SerializeField]
 	private Vector3 m_ballResetPos;
 
-	private bool m_isSimulate = false;
-
 
 	private void Update()
 	{
 		float result = 0.0f;
-		if (!m_isSimulate && float.TryParse(m_inputFieldVelocity.text, out result))
+		if (float.TryParse(m_inputFieldVelocity.text, out result))
 		{
 			var topHeight = SystemCalc.GetVelocityTopHeight(result, m_ballResetPos.y);
 			m_line.transform.position = new Vector3(0.0f, topHeight, 0.0f);
@@ -29,12 +27,11 @@ public class Example5 : MonoBehaviour
 
 	public void OnButtonDownSimulate()
 	{
-		if (m_inputFieldVelocity.text == "" || m_isSimulate)
+		if (m_inputFieldVelocity.text == "")
 			return;
 
 		m_ballRigid.simulated = false;
 		m_ballRigid.transform.position = m_ballResetPos;
-		m_isSimulate = true;
 		m_ballRigid.simulated = true;
 		m_ballRigid.AddForce(new Vector2(0.0f, float.Parse(m_inputFieldVelocity.text)), ForceMode2D.Impulse);
 	}
