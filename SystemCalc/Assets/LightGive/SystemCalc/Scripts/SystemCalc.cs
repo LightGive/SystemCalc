@@ -112,6 +112,7 @@ public static class SystemCalc
 	#endregion
 
 	#region GetVelocityTopHeight (初速を加えた時の最高地点の高さを求める)
+
 	/// <summary>
 	/// 初速を加えた時の最高地点の高さを求める
 	/// </summary>
