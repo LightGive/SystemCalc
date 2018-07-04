@@ -274,15 +274,6 @@ public static class SystemCalc
 
 	#endregion
 
-	#region GetMagnusEffectVec (回転のベクトルからマグヌス効果で付与するベクトルを求める)
-
-	public static Vector3 GetMagnusEffectVec(Vector3 _angleVelocity, Vector3 _velocity)
-	{
-		return Vector3.zero;
-	}
-
-	#endregion
-
 	#region GetLineNearPoint(ある座標の直線上の一番近い座標を求める)
 
 
