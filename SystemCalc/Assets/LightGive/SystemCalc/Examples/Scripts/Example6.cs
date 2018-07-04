@@ -18,6 +18,8 @@ public class Example6 : MonoBehaviour
 
 	void Update ()
 	{
-		
+		m_topPoint.position = SystemCalc.GetVelocityTopPos(
+			new Vector3(float.Parse(m_inputFieldVelocity_x.text), float.Parse(m_inputFieldVelocity_y.text)),
+			m_ballResetPos);
 	}
 }
