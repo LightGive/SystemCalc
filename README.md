@@ -12,7 +12,7 @@ Unityで物理・図形・その他の計算など、頻繁に使用する関数
 * GetVelocityTopPos (初速を加えた時の最高地点の座標を求める)<br>
 * GetArrayMax (配列内の一番大きい値を返す)<br>
 * GetArrayMin (配列内の一番小さい値を返す)<br>
-
+* GetArraySum (配列内の値を足して返す)<br>
 
 ## Example
 ### ・GetCircleLineIntersection
