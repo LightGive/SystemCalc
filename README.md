@@ -15,11 +15,35 @@ Unityで物理・図形・その他の計算など、頻繁に使用する関数
 
 
 ## Example <br>
-* GetCircleLineIntersection_Example<br>
+### GetCircleLineIntersection_Example<br>
+円と線との交点を取得します。<br>
+
+```
+public static bool GetIntersectionOfLineAndCircle(
+  Vector2 _linePoint1, 
+  Vector2 _linePoint2, 
+  Vector2 _circleCenter, 
+  float _circleRadius, 
+  out Vector2 _intersectionPoint1, 
+  out Vector2 _intersectionPoint2)
+```
+
+#### パラメーター<br>
+|引数| 説明|
+|:-----------|:-----------|
+| _linePoint1|(Vector2)線分の始点|
+| _linePoint2|（Vector2）線分の終点|
+| _circleCenter|（Vector2）円の中心点|
+| _circleRadius|(float)円の半径|
+| _intersectionPoint1|（out Vector2)円と線が交差していた場合、交差している座標が入る|
+| _intersectionPoint2|（out Vector2)円と線が交差していた場合、交差している座標が入る|
+
 <img src="https://78.media.tumblr.com/37909122011ba993119e3f94faa2841a/tumblr_pb88a5YaNJ1u4382eo1_400.gif" alt="サンプル1" title="サンプル"><br>
-* GetIntersectionOfCircleAndCircle_Example<br>
+
+### GetIntersectionOfCircleAndCircle_Example<br>
 <img src="https://78.media.tumblr.com/807b8b1c3709ad917cea8d7abe48d046/tumblr_pb8hpqvu6Y1u4382eo1_400.gif" alt="サンプル2" title="サンプル"><br>
-* GetLineNearPoint_Example<br>
+
+### GetLineNearPoint_Example<br>
 <img src="https://78.media.tumblr.com/3fc64a053bdd6856c4c8fe1cb9665ab4/tumblr_pb8jj0nHTw1u4382eo1_400.gif" alt="サンプル3" title="サンプル"><br>
 
 
