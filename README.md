@@ -1,4 +1,4 @@
-# SystemCalc<br>
+# SystemCalc　[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](http://mit-license.org)<br>
 Unityで物理・図形・その他の計算など、頻繁に使用する関数をまとめたスクリプト<br>
 物理計算は質量、空気抵抗、マグヌス効果などを含まない簡単な計算です。<br>
 関数には複数のオーバーロードを追加してあります。<br>
@@ -12,7 +12,7 @@ Unityで物理・図形・その他の計算など、頻繁に使用する関数
 * GetVelocityTopPos (初速を加えた時の最高地点の座標を求める)<br>
 * GetArrayMax (配列内の一番大きい値を返す)<br>
 * GetArrayMin (配列内の一番小さい値を返す)<br>
-
+* GetArraySum (配列内の値を足して返す)<br>
 
 ## Example
 ### ・GetCircleLineIntersection
@@ -85,8 +85,8 @@ public static Vector3 GetLineNearPoint(
 | _linePoint1|(Vector2)線分の始点|
 | _linePoint2|(Vector2)線分の終点|
 | _checkPoint|(Vector2)確認したい座標|
-| _isLimit   |(bool)線分を0-1で|
-| _lerp      |(out float)AからBの|
+| _isLimit   |(bool)線上の始点から終点で制限をかけるかどうか。|
+| _lerp      |(out float)始点を0、終点を1とした時の値。|
 
 #### 返り値 <br>
 (Vector3)線状で一番近い座標<br>
@@ -97,7 +97,6 @@ public static Vector3 GetLineNearPoint(
 * 球と線との交点を求める<br>
 * 線と線との最も近い位置を求める<br>
 * 面の表か裏か判定をする<br>
-* A~Bの間のどの辺りか0から1で求める<br>
 * AからBに向く角度を求める<br>
 * ベクトル→角度<br>
 * 角度→ベクトル<br>
