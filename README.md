@@ -1,5 +1,7 @@
 # SystemCalc<br>
-Unityで、物理関係や回転・角度等の計算をする<br>
+Unityで物理・図形・その他の計算など、頻繁に使用する関数をまとめたスクリプト<br>
+物理計算は質量、空気抵抗、マグヌス効果などを含まない簡単な計算です。<br>
+関数には複数のオーバーロードを追加してあります。<br>
 
 ## List of Functions<br>
 * GetCircleLineIntersection (円と線の交点を求める)<br>
