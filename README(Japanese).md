@@ -1,7 +1,6 @@
 # SystemCalc<br>
 Unityで、物理関係や回転・角度等の計算をする<br>
 
-
 ## List of Functions<br>
 * GetCircleLineIntersection (円と線の交点を求める)<br>
 * GetIntersectionOfCircleAndCircle (円と円の交点を求める)<br>
