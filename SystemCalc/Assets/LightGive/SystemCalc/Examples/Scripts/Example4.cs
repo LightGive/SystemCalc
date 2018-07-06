@@ -49,7 +49,7 @@ public class Example4 : MonoBehaviour
 		m_ballRigid.transform.position = m_ballResetPos;
 		m_isSimulate = true;
 		m_ballRigid.simulated = true;
-		m_ballRigid.AddForce(new Vector2(0.0f, float.Parse(m_inputFieldVelocity.text)), ForceMode2D.Impulse);
+		m_ballRigid.velocity = new Vector2(0.0f, float.Parse(m_inputFieldVelocity.text));
 		m_simulateTimeCnt = SystemCalc.GetVelocityTopTime(float.Parse(m_inputFieldVelocity.text));
 	}
 }
