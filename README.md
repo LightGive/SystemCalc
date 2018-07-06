@@ -133,6 +133,32 @@ public static float GetVelocityTopHeight(
 <br>
 
 
+[](---------------------------区切り---------------------------)
+
+### ・GetBallisticpredictionPoint
+初速を加えた後の弾道予測点を求める<br>
+<img src="https://78.media.tumblr.com/0fd8b72912fb1c8bba820c12ca2bdbb5/tumblr_pbfuimltvo1u4382eo1_400.gif" alt="サンプル1" title="サンプル"><br>
+```
+public static Vector3[] GetBallisticpredictionPoint(
+  Vector3 _vec,
+  Vector3 _startPos, 
+  int _pointNum, 
+  float _intervalTime, 
+  Vector3 _gravity)
+```
+#### パラメーター<br>
+|引数| 説明|
+|:-----------|:-----------|
+| _vec        　　|(Vector3)球の初速|
+| _startPos   　　|(Vector3)初速を加えた時の座標|
+| _pointNum   　　|(int)取得する座標の数|
+| _intervalTime|(Vector3)取得する座標の間隔の時間(秒)|
+| _gravity     |(Vector3)重力加速度|
+
+#### 返り値 <br>
+(Vector3[])弾道予測線の座標<br>
+<br>
+
 ## Future<br>
 * 初速を加えた時、何秒後に地面に落ちるか<br>
 * 球と線との交点を求める<br>
