@@ -92,6 +92,47 @@ public static Vector3 GetLineNearPoint(
 (Vector3)線状で一番近い座標<br>
 <br>
 
+[](---------------------------区切り---------------------------)
+
+### ・GetVelocityTopTime
+球に初速を加えた時、頂点に達するまでの時間を求める<br>
+```
+public static float GetVelocityTopTime(
+  Vector3 _vec, 
+  Vector3 _gravity)
+```
+#### パラメーター<br>
+|引数| 説明|
+|:-----------|:-----------|
+| _vec    |(Vector3)球の初速|
+| _gravity|(Vector3)重力加速度|
+
+#### 返り値 <br>
+(float)頂点に到達する時間(秒)<br>
+<br>
+
+[](---------------------------区切り---------------------------)
+
+### ・GetVelocityTopTime
+球に初速を加えた時、最高地点の高さを求める<br>
+```
+public static float GetVelocityTopHeight(
+  Vector3 _vec, 
+  float _startHeight, 
+  Vector3 _gravity)
+```
+#### パラメーター<br>
+|引数| 説明|
+|:-----------|:-----------|
+| _vec        |(Vector3)球の初速|
+| _startHeight|(float)球の初速|
+| _gravity    |(Vector3)重力加速度|
+
+#### 返り値 <br>
+(float)頂点に到達する高さ<br>
+<br>
+
+
 ## Future<br>
 * 初速を加えた時、何秒後に地面に落ちるか<br>
 * 球と線との交点を求める<br>
