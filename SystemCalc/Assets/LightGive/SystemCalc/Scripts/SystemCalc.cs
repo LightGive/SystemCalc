@@ -524,7 +524,7 @@ public static class SystemCalc
 	/// </summary>
 	/// <returns>最小値</returns>
 	/// <param name="_array">配列</param>
-	public static float ArrayMax(params float[] _array)
+	public static float ArrayMin(params float[] _array)
 	{
 		float min = _array[0];
 		for (int i = 0; i < _array.Length; i++)
