@@ -189,6 +189,15 @@ public static class SystemCalc
 
 	#region GetBallisticpredictionPoint (初速を加えた後の弾道予測点を求める)
 
+	/// <summary>
+	/// 初速を加えた後の弾道予測点を求める
+	/// </summary>
+	/// <returns>The ballisticprediction point.</returns>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startPos">初速を加えた時の座標</param>
+	/// <param name="_pointNum">取得する座標の数</param>
+	/// <param name="_intervalTime">秒数ごとの間隔</param>
+	/// <param name="_gravity">重力加速度</param>
 	public static Vector3[] GetBallisticpredictionPoint(Vector3 _vec, Vector3 _startPos, int _pointNum, float _intervalTime, float _gravity = DefaultGravitationalAcceleration)
 	{
 		return GetBallisticpredictionPoint(_vec, _startPos, _pointNum, _intervalTime, new Vector3(0.0f, _gravity, 0.0f));
@@ -215,7 +224,6 @@ public static class SystemCalc
 		}
 		return points;
 	}
-
 	#endregion
 
 
