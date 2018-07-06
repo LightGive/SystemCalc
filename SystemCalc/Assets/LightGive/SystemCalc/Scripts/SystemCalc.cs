@@ -169,19 +169,19 @@ public static class SystemCalc
 		return GetVelocityTimeToPosition(_vec, _startPos, _time, DefaultGravitationalAccelerationVec);
 	}
 
-    /// <summary>
-    /// 初速を加えた後指定秒数後にどの座標にいるか
-    /// </summary>
-    /// <returns>指定秒数後の座標</returns>
-    /// <param name="_vec">初速</param>
-    /// <param name="_startPos">初速を加えた時の座標</param>
-    /// <param name="_time">指定秒数</param>
-    /// <param name="_gravity">重力加速度</param>
+	/// <summary>
+	/// 初速を加えた後指定秒数後にどの座標にいるか
+	/// </summary>
+	/// <returns>指定秒数後の座標</returns>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startPos">初速を加えた時の座標</param>
+	/// <param name="_time">指定秒数</param>
+	/// <param name="_gravity">重力加速度</param>
 	public static Vector3 GetVelocityTimeToPosition(Vector3 _vec, Vector3 _startPos, float _time, Vector3 _gravity)
 	{
 		return new Vector3(
-			_vec.x * _time, 
-			(_vec.y * _time) - 0.5f * (-_gravity.y) * Mathf.Pow(_time, 2.0f), 
+			_vec.x * _time,
+			(_vec.y * _time) - 0.5f * (-_gravity.y) * Mathf.Pow(_time, 2.0f),
 			_vec.z * _time) + _startPos;
 	}
 
@@ -212,7 +212,7 @@ public static class SystemCalc
 	/// <param name="_pointNum">取得する座標の数</param>
 	/// <param name="_intervalTime">秒数ごとの間隔</param>
 	/// <param name="_gravity">重力加速度</param>
-	public static Vector3[] GetBallisticpredictionPoint(Vector3 _vec,Vector3 _startPos, int _pointNum, float _intervalTime, Vector3 _gravity)
+	public static Vector3[] GetBallisticpredictionPoint(Vector3 _vec, Vector3 _startPos, int _pointNum, float _intervalTime, Vector3 _gravity)
 	{
 		_pointNum = Mathf.Clamp(_pointNum, 1, int.MaxValue);
 		_intervalTime = Mathf.Clamp(_intervalTime, 0.0001f, float.MaxValue);
@@ -226,24 +226,23 @@ public static class SystemCalc
 	}
 	#endregion
 
-
 	#region GetVelocityGroundFallTimeVec (指定秒数後に指定の地面に落ちる初速を求める)
 
 	public static bool GetVelocityGroundFallTimeVec(ref Vector3 _vec, Vector3 _startPos, Vector3 _targetPos, float _time, float _gravity = DefaultGravitationalAcceleration)
-    {
-        var offset = _targetPos.y - _startPos.y;
-        var x = (_targetPos.x - _startPos.x) / _time;
-        var z = (_targetPos.z - _startPos.z) / _time;
-        var y = (_targetPos.y / _time) + (0.5f * _gravity * _time) - (_startPos.y / _time);
-        _vec = new Vector3(x, -y, z);
-        return true;
-    }
+	{
+		var offset = _targetPos.y - _startPos.y;
+		var x = (_targetPos.x - _startPos.x) / _time;
+		var z = (_targetPos.z - _startPos.z) / _time;
+		var y = (_targetPos.y / _time) + (0.5f * _gravity * _time) - (_startPos.y / _time);
+		_vec = new Vector3(x, -y, z);
+		return true;
+	}
 
-    #endregion
+	#endregion
 
-    #region GetFreeFallTime (空気抵抗を含む指定距離の自由落下する時間を求める)
+	#region GetFreeFallTime (空気抵抗を含む指定距離の自由落下する時間を求める)
 
-    public static float GetFreeFallTime(float _height, float _gravity, float _mass, float _drag)
+	public static float GetFreeFallTime(float _height, float _gravity, float _mass, float _drag)
 	{
 		return Mathf.Sqrt(_mass / (-_gravity * _drag)) * (float)System.Math.Acos((_height * _drag) / _mass);
 	}
@@ -261,7 +260,7 @@ public static class SystemCalc
 	/// <param name="_linePoint2">線の終点</param>
 	/// <param name="_checkPoint">確認する座標</param>
 	/// <param name="_isLimit">0-1で制限をかけるかどうか<c>true</c> is limit.</param> 
-	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint,bool _isLimit = false)
+	public static Vector3 GetLineNearPoint(Vector3 _linePoint1, Vector3 _linePoint2, Vector3 _checkPoint, bool _isLimit = false)
 	{
 		float lerp = 0.0f;
 		return GetLineNearPoint(_linePoint1, _linePoint2, _checkPoint, _isLimit, out lerp);
@@ -317,8 +316,8 @@ public static class SystemCalc
 		Vector2 h = Vector2.zero;
 
 		//二点が同じ位置の時や、二点とも円の中にある時は交差しない判定にする
-		if ((_linePoint1 == _linePoint2)||
-		    ((Vector2.Distance(_circleCenter, _linePoint1) < _circleRadius && Vector2.Distance(_circleCenter, _linePoint2) < _circleRadius))) 
+		if ((_linePoint1 == _linePoint2) ||
+			((Vector2.Distance(_circleCenter, _linePoint1) < _circleRadius && Vector2.Distance(_circleCenter, _linePoint2) < _circleRadius)))
 			return false;
 
 		if (float_6 > 0)
@@ -351,7 +350,7 @@ public static class SystemCalc
 				}
 
 				var n2 = Vector2.Dot(v, v);
-				if(n1 > n2)
+				if (n1 > n2)
 				{
 					var len = Mathf.Pow(Vector2.Distance(_circleCenter, _linePoint2), 2);
 					return (len < Mathf.Pow(_circleRadius, 2));
@@ -409,7 +408,7 @@ public static class SystemCalc
 			_intersectionPoint2 = new Vector2(xc + xd, yc - yd);
 			return true;
 		}
-		else if(d.Equals(0.0f))
+		else if (d.Equals(0.0f))
 		{
 			_intersectionPoint1 = new Vector2(_circlePoint1.x - a * k / l, _circlePoint1.y - b * k / l);
 			_intersectionPoint2 = new Vector2(_circlePoint1.x - a * k / l, _circlePoint1.y - b * k / l);
@@ -432,9 +431,9 @@ public static class SystemCalc
 	/// <returns>角度</returns>
 	public static float VectorToAngle(Vector2 _vec)
 	{
-		return Mathf.Atan2(_vec.normalized.y, _vec.normalized.x) * Mathf.Rad2Deg;
+		return (Mathf.Atan2(_vec.normalized.y, _vec.normalized.x) * Mathf.Rad2Deg) + 270.0f;
 	}
-	
+
 	#endregion
 
 	#region ArraySum(配列内の要素を合計する)
@@ -460,19 +459,6 @@ public static class SystemCalc
 	public static float ArraySum(params float[] _array)
 	{
 		float sum = 0;
-		for (int i = 0; i < _array.Length; i++)
-			sum += _array[i];
-		return sum;
-	}
-
-	/// <summary>
-	/// 配列内の要素を合計する
-	/// </summary>
-	/// <param name="_array">合計する配列</param>
-	/// <returns>合計値</returns>
-	public static string ArraySum(params string[] _array)
-	{
-		string sum = "";
 		for (int i = 0; i < _array.Length; i++)
 			sum += _array[i];
 		return sum;
@@ -556,6 +542,7 @@ public static class SystemCalc
 	#endregion
 
 	#region RandomDateTime(開始時間と終了時間をランダムで返す)
+
 	/// <summary>
 	///	開始時間と終了時間の間をランダムで返す計算をする
 	/// </summary>
@@ -572,5 +559,4 @@ public static class SystemCalc
 		return _startDateTime + TimeSpan.FromMilliseconds(ranSpan);
 	}
 	#endregion
-
 }
