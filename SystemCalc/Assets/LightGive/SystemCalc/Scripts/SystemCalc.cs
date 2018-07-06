@@ -103,62 +103,9 @@ public static class SystemCalc
 	/// <param name="_vec">初速</param>
 	/// <param name="_gravity">重力加速度</param>
 	/// <returns>何秒後に頂点に到達するか</returns>
-	public static float GetVelocityTopTime(float _vec, Vector3 _gravity, float _mass = DefaultMass, float _drag = DefaultDrag)
+	public static float GetVelocityTopTime(float _vec, Vector3 _gravity)
 	{
 		return Mathf.Clamp(_vec / -_gravity.y, 0.0f, float.PositiveInfinity);
-	}
-
-	#endregion
-
-	#region GetVelocityTopHeight (初速を加えた時の最高地点の高さを求める)
-
-	/// <summary>
-	/// 初速を加えた時の最高地点の高さを求める
-	/// </summary>
-	/// <param name="_vec">初速</param>
-	/// <param name="_startHeight">初速を加えた時の高さ</param>
-	/// <returns>最高地点の高さ</returns>
-	public static float GetVelocityTopHeight(Vector3 _vec, float _startHeight, float _gravity = DefaultGravitationalAcceleration)
-	{
-		return GetVelocityTopHeight(_vec.y, _startHeight, new Vector3(0.0f, _gravity, 0.0f));
-	}
-
-	/// <summary>
-	/// 初速を加えた時の最高地点の高さを求める
-	/// </summary>
-	/// <param name="_vec">初速</param>
-	/// <param name="_startHeight">初速を加えた時の高さ</param>
-	/// <returns>最高地点の高さ</returns>
-	public static float GetVelocityTopHeight(Vector3 _vec, float _startHeight, Vector3 _gravity)
-	{
-		return GetVelocityTopHeight(_vec.y, _startHeight, _gravity);
-	}
-
-	/// <summary>
-	/// 初速を加えた時の最高地点の高さを求める
-	/// </summary>
-	/// <param name="_vec">初速</param>
-	/// <param name="_startHeight">初速を加えた時の高さ</param>
-	/// <returns>最高地点の高さ</returns>
-	public static float GetVelocityTopHeight(float _vec, float _startHeight, float _gravity = DefaultGravitationalAcceleration)
-	{
-		return GetVelocityTopHeight(_vec, _startHeight, new Vector3(0.0f, _gravity, 0.0f));
-	}
-
-	/// <summary>
-	/// 初速を加えた時の最高地点の高さを求める
-	/// </summary>
-	/// <param name="_vec">初速</param>
-	/// <param name="_startHeight">初速を加えた時の高さ</param>
-	/// <param name="_gravity">重力加速度</param>
-	/// <param name="_mass">質量</param>
-	/// <param name="_drag">空気抵抗</param>
-	/// <returns>最高地点の高さ</returns>
-	public static float GetVelocityTopHeight(float _vec, float _startHeight, Vector3 _gravity, float _mass = DefaultMass, float _drag = DefaultDrag)
-	{
-		//GetVelocityTopTime
-		var t = Mathf.Clamp(_vec / -_gravity.y, 0.0f, float.PositiveInfinity);
-		return (_vec * t) + (-0.5f * -_gravity.y * Mathf.Pow(t, 2.0f)) + _startHeight;
 	}
 
 	#endregion
