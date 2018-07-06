@@ -160,9 +160,9 @@ public static class SystemCalc
 	/// <summary>
 	/// 初速を加えた後指定秒数後にどの座標にいるか
 	/// </summary>
-	/// <param name="_vec"></param>
-	/// <param name="_startPos"></param>
-	/// <param name="_time"></param>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startPos">初速を加えた時の座標</param>
+	/// <param name="_time">指定秒数</param>
 	/// <returns></returns>
 	public static Vector3 GetVelocityTimeToPosition(Vector3 _vec, Vector3 _startPos, float _time)
 	{
@@ -172,14 +172,12 @@ public static class SystemCalc
     /// <summary>
     /// 初速を加えた後指定秒数後にどの座標にいるか
     /// </summary>
-    /// <returns>The velocity time to position.</returns>
-    /// <param name="_vec">Vec.</param>
-    /// <param name="_startPos">Start position.</param>
-    /// <param name="_time">Time.</param>
-    /// <param name="_gravity">Gravity.</param>
-    /// <param name="_mass">Mass.</param>
-    /// <param name="_drag">Drag.</param>
-	public static Vector3 GetVelocityTimeToPosition(Vector3 _vec, Vector3 _startPos, float _time, Vector3 _gravity, float _mass = DefaultMass, float _drag = DefaultDrag)
+    /// <returns>指定秒数後の座標</returns>
+    /// <param name="_vec">初速</param>
+    /// <param name="_startPos">初速を加えた時の座標</param>
+    /// <param name="_time">指定秒数</param>
+    /// <param name="_gravity">重力加速度</param>
+	public static Vector3 GetVelocityTimeToPosition(Vector3 _vec, Vector3 _startPos, float _time, Vector3 _gravity)
 	{
 		return new Vector3(
 			_vec.x * _time, 
@@ -187,11 +185,43 @@ public static class SystemCalc
 			_vec.z * _time) + _startPos;
 	}
 
-    #endregion
+	#endregion
 
-    #region GetVelocityGroundFallTimeVec (指定秒数後に指定の地面に落ちる初速を求める)
+	#region GetBallisticpredictionPoint (初速を加えた後の弾道予測点を求める)
 
-    public static bool GetVelocityGroundFallTimeVec(ref Vector3 _vec, Vector3 _startPos, Vector3 _targetPos, float _time, float _gravity = DefaultGravitationalAcceleration)
+	public static Vector3[] GetBallisticpredictionPoint(Vector3 _vec, Vector3 _startPos, int _pointNum, float _intervalTime, float _gravity = DefaultGravitationalAcceleration)
+	{
+		return GetBallisticpredictionPoint(_vec, _startPos, _pointNum, _intervalTime, new Vector3(0.0f, _gravity, 0.0f));
+	}
+
+	/// <summary>
+	/// 初速を加えた後の弾道予測点を求める
+	/// </summary>
+	/// <returns>The ballisticprediction point.</returns>
+	/// <param name="_vec">初速</param>
+	/// <param name="_startPos">初速を加えた時の座標</param>
+	/// <param name="_pointNum">取得する座標の数</param>
+	/// <param name="_intervalTime">秒数ごとの間隔</param>
+	/// <param name="_gravity">重力加速度</param>
+	public static Vector3[] GetBallisticpredictionPoint(Vector3 _vec,Vector3 _startPos, int _pointNum, float _intervalTime, Vector3 _gravity)
+	{
+		_pointNum = Mathf.Clamp(_pointNum, 1, int.MaxValue);
+		_intervalTime = Mathf.Clamp(_intervalTime, 0.0001f, float.MaxValue);
+
+		Vector3[] points = new Vector3[_pointNum];
+		for (int i = 0; i < _pointNum; i++)
+		{
+			points[i] = GetVelocityTimeToPosition(_vec, _startPos, (i * _intervalTime), _gravity);
+		}
+		return points;
+	}
+
+	#endregion
+
+
+	#region GetVelocityGroundFallTimeVec (指定秒数後に指定の地面に落ちる初速を求める)
+
+	public static bool GetVelocityGroundFallTimeVec(ref Vector3 _vec, Vector3 _startPos, Vector3 _targetPos, float _time, float _gravity = DefaultGravitationalAcceleration)
     {
         var offset = _targetPos.y - _startPos.y;
         var x = (_targetPos.x - _startPos.x) / _time;
