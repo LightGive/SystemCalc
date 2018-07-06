@@ -501,6 +501,41 @@ public static class SystemCalc
 
 	#endregion
 
+	#region ArrayMaxIndex(配列内の要素で最大の添字を返す)
+	/// <summary>
+	/// 配列内の最大値の添字を返す
+	/// </summary>
+	/// <returns>最大値の添字</returns>
+	/// <param name="_array">配列</param>
+	public static int ArrayMaxIndex(params int[] _array)
+	{
+		int maxIdx = 0;
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] > _array[maxIdx])
+				maxIdx = i;
+		}
+		return maxIdx;
+	}
+
+	/// <summary>
+	/// 配列内の最大値の添字を返す
+	/// </summary>
+	/// <returns>最大値の添字</returns>
+	/// <param name="_array">配列</param>
+	public static float ArrayMaxIndex(params float[] _array)
+	{
+		int maxIdx = 0;
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] > _array[maxIdx])
+				maxIdx = i;
+		}
+		return maxIdx;
+	}
+	#endregion
+
+
 	#region GetRandomIndex(重みづけされた配列からランダムな添え字を返す)
 
 	/// <summary>
