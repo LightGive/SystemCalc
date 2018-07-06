@@ -164,7 +164,7 @@ public static Vector3[] GetBallisticpredictionPoint(
 ベクトルから角度に変関する<br>
 <img src="https://78.media.tumblr.com/c5feb697b32ddf82ae6df3db5f46d1a1/tumblr_pbgwgyzhqq1u4382eo1_400.gif" alt="サンプル1" title="サンプル"><br>
 ```
-	public static float VectorToAngle(
+public static float VectorToAngle(
   Vector2 _vec)
 ```
 #### パラメーター<br>
