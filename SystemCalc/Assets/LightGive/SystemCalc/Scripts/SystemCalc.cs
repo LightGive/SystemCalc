@@ -422,7 +422,7 @@ public static class SystemCalc
 
 	#endregion
 
-	#region
+
 
 	/// <summary>
 	/// ベクトルから角度に直す
@@ -435,8 +435,6 @@ public static class SystemCalc
 		if (angle < 0) { angle += 360.0f; } else if (angle > 360) { angle -= 360.0f; }
 		return angle;
 	}
-
-	#endregion
 
 	#region ArraySum(配列内の要素を合計する)
 
