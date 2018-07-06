@@ -159,6 +159,24 @@ public static Vector3[] GetBallisticpredictionPoint(
 (Vector3[])弾道予測線の座標<br>
 <br>
 
+
+### ・VectorToAngle
+ベクトルから角度に変関する<br>
+<img src="https://78.media.tumblr.com/0fd8b72912fb1c8bba820c12ca2bdbb5/tumblr_pbfuimltvo1u4382eo1_400.gif" alt="サンプル1" title="サンプル"><br>
+```
+	public static float VectorToAngle(
+  Vector2 _vec)
+```
+#### パラメーター<br>
+|引数| 説明|
+|:-----------|:-----------|
+| _vec       |(Vector2)角度に変更するベクトル|
+
+#### 返り値 <br>
+(float)角度<br>
+<br>
+
+
 ## Future<br>
 * 初速を加えた時、何秒後に地面に落ちるか<br>
 * 球と線との交点を求める<br>
