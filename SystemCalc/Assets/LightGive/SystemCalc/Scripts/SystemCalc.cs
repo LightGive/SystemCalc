@@ -501,7 +501,43 @@ public static class SystemCalc
 
 	#endregion
 
-	#region ArrayMaxIndex(配列内の要素で最大の添字を返す)
+	#region ArrayMin(配列内の要素で最小値を返す)
+
+	/// <summary>
+	/// 配列内の最小値を返す
+	/// </summary>
+	/// <returns>最小値</returns>
+	/// <param name="_array">配列</param>
+	public static int ArrayMin(params int[] _array)
+	{
+		int min = _array[0];
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] < min)
+				min = _array[i];
+		}
+		return min;
+	}
+
+	/// <summary>
+	/// 配列内の最小値を返す
+	/// </summary>
+	/// <returns>最小値</returns>
+	/// <param name="_array">配列</param>
+	public static float ArrayMax(params float[] _array)
+	{
+		float min = _array[0];
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] < min)
+				min = _array[i];
+		}
+		return min;
+	}
+
+	#endregion
+
+	#region ArrayMaxIndex(配列内の要素で最大値の添字を返す)
 	/// <summary>
 	/// 配列内の最大値の添字を返す
 	/// </summary>
@@ -532,6 +568,40 @@ public static class SystemCalc
 				maxIdx = i;
 		}
 		return maxIdx;
+	}
+	#endregion
+
+	#region ArrayMinIndex(配列内の要素で最小値の添字を返す)
+	/// <summary>
+	/// 配列内の最小値の添字を返す
+	/// </summary>
+	/// <returns>最小値の添字</returns>
+	/// <param name="_array">配列</param>
+	public static int ArrayMinIndex(params int[] _array)
+	{
+		int minIdx = 0;
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] < _array[minIdx])
+				minIdx = i;
+		}
+		return minIdx;
+	}
+
+	/// <summary>
+	/// 配列内の最小値の添字を返す
+	/// </summary>
+	/// <returns>最小値の添字</returns>
+	/// <param name="_array">配列</param>
+	public static float ArrayMinIndex(params float[] _array)
+	{
+		int minIdx = 0;
+		for (int i = 0; i < _array.Length; i++)
+		{
+			if (_array[i] < _array[minIdx])
+				minIdx = i;
+		}
+		return minIdx;
 	}
 	#endregion
 
