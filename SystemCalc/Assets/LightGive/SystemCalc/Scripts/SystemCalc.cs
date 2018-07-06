@@ -431,7 +431,9 @@ public static class SystemCalc
 	/// <returns>角度</returns>
 	public static float VectorToAngle(Vector2 _vec)
 	{
-		return (Mathf.Atan2(_vec.normalized.y, _vec.normalized.x) * Mathf.Rad2Deg) + 270.0f;
+		var angle = (Mathf.Atan2(_vec.normalized.y, _vec.normalized.x) * Mathf.Rad2Deg) + 270.0f;
+		if (angle < 0) { angle += 360.0f; } else if (angle > 360) { angle -= 360.0f; }
+		return angle;
 	}
 
 	#endregion
