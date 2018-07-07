@@ -4,8 +4,8 @@ Unityで物理・図形・その他の計算など、頻繁に使用する関数
 関数には複数のオーバーロードを追加してあります。<br>
 
 ## DownloadPackage
-[SystemCalc(1.0.0)_IncludedExample](url"https://www.dropbox.com/s/vjln000eo9g17fc/SystemCalc%281.0.0%29_IncludedExample.unitypackage?dl=0")<br>
-[SystemCalc(1.0.0)_NoExample](url"https://www.dropbox.com/s/1p4fpj0jhnm8hd7/SystemCalc%281.0.0%29_NoExample.unitypackage?dl=0")<br>
+[SystemCalc(1.0.0)_IncludedExample](https://www.dropbox.com/s/vjln000eo9g17fc/SystemCalc%281.0.0%29_IncludedExample.unitypackage?dl=0"SystemCalc(1.0.0)_IncludedExample")<br>
+[SystemCalc(1.0.0)_NoExample](https://www.dropbox.com/s/1p4fpj0jhnm8hd7/SystemCalc%281.0.0%29_NoExample.unitypackage?dl=0"SystemCalc(1.0.0)_NoExample")<br>
 
 ## List of Functions<br>
 * GetCircleLineIntersection (円と線の交点を求める)<br>
