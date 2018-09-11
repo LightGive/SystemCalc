@@ -52,6 +52,8 @@ public static class SystemCalc
 	/// </summary>
 	private static readonly Vector3 DefaultGravitationalAccelerationVec = new Vector3(0.0f, DefaultGravitationalAcceleration, 0.0f);
 
+	#region 物理など
+
 	#region GetVelocityTopTime (初速を加えた時、何秒後に頂点に達するかを求める)
 
 	/// <summary>
@@ -249,6 +251,10 @@ public static class SystemCalc
 
 	#endregion
 
+	#endregion
+
+	#region 座標など
+
 	#region GetLineNearPoint(ある座標の直線上の一番近い座標を求める)
 
 
@@ -265,7 +271,6 @@ public static class SystemCalc
 		float lerp = 0.0f;
 		return GetLineNearPoint(_linePoint1, _linePoint2, _checkPoint, _isLimit, out lerp);
 	}
-
 
 	/// <summary>
 	/// 二点間の線上で一番近い座標を求める
@@ -290,7 +295,9 @@ public static class SystemCalc
 
 	#endregion
 
-	#region 交点を求める
+	#endregion
+
+	#region 交点など
 
 	/// <summary>
 	/// 円と線との交点を求める
@@ -422,6 +429,8 @@ public static class SystemCalc
 
 	#endregion
 
+	#region 角度とベクトルなど
+
 	#region VectorAndAngle(ベクトルと角度関係)
 
 	/// <summary>
@@ -437,6 +446,10 @@ public static class SystemCalc
 	}
 
 	#endregion
+
+	#endregion
+
+	#region 配列など
 
 	#region ArraySum(配列内の要素を合計する)
 
@@ -607,6 +620,10 @@ public static class SystemCalc
 	}
 	#endregion
 
+	#endregion
+
+	#region ランダムなど
+
 	#region GetRandomIndex(重みづけされた配列からランダムな添え字を返す)
 
 	/// <summary>
@@ -665,4 +682,36 @@ public static class SystemCalc
 		return _startDateTime + TimeSpan.FromMilliseconds(ranSpan);
 	}
 	#endregion
+
+	#endregion
+
+	#region その他
+
+	/// <summary>
+	/// 式
+	/// </summary>
+	public class Function
+	{
+		public float a = 0;
+		public float b = 0;
+	}
+
+	/// <summary>
+	/// 二点から式を求める
+	/// </summary>
+	/// <returns>The quadratic function.</returns>
+	/// <param name="_x1">X1.</param>
+	/// <param name="_y1">Y1.</param>
+	/// <param name="_x2">X2.</param>
+	/// <param name="_y2">Y2.</param>
+	public static Function GetQuadraticFunction(float _x1, float _y1, float _x2, float _y2)
+	{
+		var func = new Function();
+		func.a = (_y2 - _y1) / (_x2 - _x1);
+		func.b = _y1 - _x1;
+		return func;
+	}
+
+	#endregion
+
 }
