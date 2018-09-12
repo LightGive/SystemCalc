@@ -3,9 +3,12 @@ Unityで物理・図形・その他の計算など、頻繁に使用する関数
 物理計算は質量、空気抵抗、マグヌス効果などを含まない簡単な計算です。<br>
 関数には複数のオーバーロードを追加してあります。<br>
 
+## Update
+ver 1.0.0 : 二点の座標の位置から二次関数の式を求める関数を追加(2018.09.11)
+
 ## Download (UnityPackage)
-[SystemCalc(1.0.0)_IncludedExample](https://www.dropbox.com/s/vjln000eo9g17fc/SystemCalc%281.0.0%29_IncludedExample.unitypackage?dl=0"SystemCalc(1.0.0)_IncludedExample")<br>
-[SystemCalc(1.0.0)_NoExample](https://www.dropbox.com/s/1p4fpj0jhnm8hd7/SystemCalc%281.0.0%29_NoExample.unitypackage?dl=0"SystemCalc(1.0.0)_NoExample")<br>
+[SystemCalc(1.0.1)_IncludedExample](https://www.dropbox.com/s/p3779j0avarp9w3/SystemCalc%281.0.1%29_IncludedExample.unitypackage?dl=0"SystemCalc(1.0.1)_IncludedExample")<br>
+[SystemCalc(1.0.1)_NoExample](https://www.dropbox.com/s/4ifz2phpw5t4plr/SystemCalc%281.0.1%29_NoExample.unitypackage?dl=0"SystemCalc(1.0.1)_NoExample")<br>
 
 ## List of Functions<br>
 * GetCircleLineIntersection (円と線の交点を求める)<br>
