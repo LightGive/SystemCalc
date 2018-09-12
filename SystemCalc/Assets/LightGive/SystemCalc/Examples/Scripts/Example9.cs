@@ -16,16 +16,6 @@ public class Example9 : MonoBehaviour
 	[SerializeField]
 	private InputField m_inputY2;
 
-	void Start()
-	{
-
-	}
-
-	void Update()
-	{
-
-	}
-
 	public void InputText()
 	{
 		var x1 = 0.0f;
