@@ -1,15 +1,8 @@
 ﻿<Properties StartupConfiguration="{1C0BBEF6-A1B6-46FC-F257-DDADC9B86E0A}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LightGive/SystemCalc/Examples/Scripts/Example9.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LightGive/Common/Extensions.cs">
     <Files>
-      <File FileName="Assets/LightGive/SystemCalc/Scripts/SystemCalc.cs" Line="713" Column="3" />
-      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Example3.cs" Line="30" Column="44" />
-      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Example.cs" Line="25" Column="37" />
-      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Example4.cs" Line="25" Column="65" />
-      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Example6.cs" Line="29" Column="4" />
-      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Example7.cs" Line="46" Column="45" />
-      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Example8.cs" Line="19" Column="49" />
-      <File FileName="Assets/LightGive/SystemCalc/Examples/Scripts/Example9.cs" Line="28" Column="18" />
+      <File FileName="Assets/LightGive/Common/Extensions.cs" Line="11" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
