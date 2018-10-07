@@ -694,24 +694,75 @@ public static class SystemCalc
 	{
 		public float a = 0;
 		public float b = 0;
+
+		public Function() { }
+		public Function(float _a, float _b)
+		{
+			a = _a;
+			b = _b;
+		}
 	}
 
 	/// <summary>
-	/// 二点から式を求める
+	/// 座標
+	/// </summary>
+	public class Coordinates
+	{
+		public float x = 0;
+		public float y = 0;
+
+		public Coordinates() { }
+		public Coordinates(float _x, float _y)
+		{
+			x = _x;
+			y = _y;
+		}
+	}
+
+	/// <summary>
+	/// 二点の座標から式を求める
 	/// </summary>
 	/// <returns>The quadratic function.</returns>
-	/// <param name="_x1">X1.</param>
-	/// <param name="_y1">Y1.</param>
-	/// <param name="_x2">X2.</param>
-	/// <param name="_y2">Y2.</param>
-	public static Function GetQuadraticFunction(float _x1, float _y1, float _x2, float _y2)
+	/// <param name="_coordinates1">座標1</param>
+	/// <param name="_coordinates2">座標2</param>
+	public static Function GetQuadraticFunction(Coordinates _coordinates1, Coordinates _coordinates2)
 	{
 		var func = new Function();
-		func.a = (_y2 - _y1) / (_x2 - _x1);
-		func.b = _y1 - _x1;
+		func.a = (_coordinates2.y - _coordinates1.y) / (_coordinates2.x - _coordinates1.x);
+		func.b = _coordinates1.y - _coordinates1.x;
 		return func;
 	}
 
-	#endregion
+	/// <summary>
+	/// 二つの式の交点の座標を求める
+	/// </summary>
+	/// <returns>The cross coordinates.</returns>
+	/// <param name="_func1">式1</param>
+	/// <param name="_func2">式2</param>
+	public static Coordinates GetCrossCoordinates(Function _func1, Function _func2)
+	{
+		var coordinates = new Coordinates(
+			(_func2.b - _func1.b) / (_func1.a - _func2.a),
+			((_func1.a * _func2.b) - (_func2.a * _func1.b)) / (_func1.a - _func2.a));
+		return coordinates;
+	}
 
+	/// <summary>
+	/// 四点から交点の座標を求める
+	/// </summary>
+	/// <returns>The cross coordinates.</returns>
+	/// <param name="_point1_1">Point1 1.</param>
+	/// <param name="_point1_2">Point1 2.</param>
+	/// <param name="_point2_1">Point2 1.</param>
+	/// <param name="_point2_2">Point2 2.</param>
+	public static Coordinates GetCrossCoordinates(Coordinates _point1_1, Coordinates _point1_2, Coordinates _point2_1, Coordinates _point2_2)
+	{
+		var a0 = (_point1_2.y - _point1_1.y) / (_point1_2.x - _point1_1.x);
+		var a1 = (_point2_2.y - _point2_1.y) / (_point2_2.x - _point2_1.x);
+		var x = (a0 * _point1_1.x - _point1_1.y - a1 * _point2_1.x + _point2_1.y) / (a0 - a1);
+		var y = (_point1_2.y - _point1_1.y) / (_point1_2.x - _point1_1.x) * (x - _point1_1.x) + _point1_1.y;
+		return new Coordinates(x, y);
+	}
+
+	#endregion
 }

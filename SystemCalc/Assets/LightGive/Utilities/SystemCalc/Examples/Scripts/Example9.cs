@@ -44,7 +44,7 @@ public class Example9 : MonoBehaviour
 			return;
 		}
 
-		var ans = SystemCalc.GetQuadraticFunction(x1, y1, x2, y2);
+		var ans = SystemCalc.GetQuadraticFunction(new SystemCalc.Coordinates(x1, y1), new SystemCalc.Coordinates(x2, y2));
 		m_textFormula.text = "y = " + ans.a.ToString() + "x +" + ans.b.ToString();
 	}
 }
