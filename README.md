@@ -4,11 +4,15 @@ Unityで物理・図形・その他の計算など、頻繁に使用する関数
 関数には複数のオーバーロードを追加してあります。<br>
 
 ## Update
-ver 1.0.0 : 二点の座標の位置から二次関数の式を求める関数を追加(2018.09.11)
+<dl>
+  <dt>ver1.0.0　(2018.09.11)</dt>
+  <dd>・正式リリース</dd>
+  <dd>・二点の座標の位置から二次関数の式を求める関数を追加</dd>
+</dl> 
 
 ## Download (UnityPackage)
-[SystemCalc(1.0.1)_IncludedExample](https://www.dropbox.com/s/p3779j0avarp9w3/SystemCalc%281.0.1%29_IncludedExample.unitypackage?dl=0"SystemCalc(1.0.1)_IncludedExample")<br>
-[SystemCalc(1.0.1)_NoExample](https://www.dropbox.com/s/4ifz2phpw5t4plr/SystemCalc%281.0.1%29_NoExample.unitypackage?dl=0"SystemCalc(1.0.1)_NoExample")<br>
+[SystemCalc(1.0.1)_IncludedExample](https://www.dropbox.com/s/p3779j0avarp9w3/SystemCalc%281.0.1%29_IncludedExample.unitypackage?dl=0)<br>
+[SystemCalc(1.0.1)_NoExample](https://www.dropbox.com/s/4ifz2phpw5t4plr/SystemCalc%281.0.1%29_NoExample.unitypackage?dl=0)<br>
 
 ## List of Functions<br>
 * GetCircleLineIntersection (円と線の交点を求める)<br>
